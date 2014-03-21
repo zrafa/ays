@@ -1,0 +1,48 @@
+Trabajo Practico Nro 2
+======================
+
+1. Escriba un script que informe el nombre del sistema y su dirección de red IP.
+
+2. Amplíe el script para que reporte información relativa al uso del disco
+y sistema de archivo raiz. 
+
+Para los ejercicios 1 y 2 se espera obtener en pantalla, una vez ejecutado
+el programa script, un reporte similar al siguiente ejemplo :
+
+
+Información del sistema de archivos raiz /
+------------------------------------------
+
+Maquina :	asterix
+Direccion IP:	10.0.60.5
+
+Disco :		sda
+Partición / :	sda7
+Espacio total : 25GB
+Espacio libre : 2GB
+
+
+AYUDA: printf, ifquery, hostname.
+
+
+3. Agregue comentarios al script que expliquen de las partes complejas como
+obtiene la información reportada.
+
+4. Agregue un comentario al principio del script para los usuarios que
+utilicen el script.
+
+5. Cambien los permisos al script para que pueda ejecutarlo.
+
+6. Ejecute el script en modo normal y en modo debug. El script debería
+ejecutarse sin errores.
+
+7. Agregue los siguientes errores a su script y observe que comentarios 
+obtiene al ejecutar el script con errores en modo debug :
+
+- Modifique el nombre de algún comando con algún error;
+- Deje vacía la primera línea del programa script;
+- Coloque algún texto incoherente en la primera linea;
+- Escriba erroneamente variables del shell que haya utilizado.
+
+NOTA: Pruebe los errores de manera secuencial y no todos juntos. De esa forma
+comprenderá mas facilmente los comentarios del modo debug.
