@@ -1,31 +1,23 @@
-1.7. Exercises
+----------------------------------
+TP01 - Automatización y scripting 
+FAI - TUASSL - 2014
+----------------------------------
 
-These are some exercises to warm you up for the next chapter:
+Algunos ejercicios de precalentamiento: 
 
-Where is the bash program located on your system?
+1. ¿Dónde se encuentra bash ubicado en su sistema?
 
-Use the --version option to find out which version you are running.
+2. Obtenga la versión de bash que esta utilizando, opción --version. 
 
-Which shell configuration files are read when you login to your system using the graphical user interface and then opening a terminal window?
+3. Qué archivos de configuración son leídos cuando ingresamos al sistema a
 
-Are the following shells interactive shells? Are they login shells?
+4. Puede explicar por qué bash no termina al escribir Ctrl+C en la linea de 
+comandos. 
 
-A shell opened by clicking on the background of your graphical desktop, selecting "Terminal" or such from a menu.
+5. Cuántos procesos se encuentran en ejecución en el sistema. Recuerde 
+descontar los encabezados si utiliza ps y wc. 
 
-A shell that you get after issuing the command ssh localhost.
-
-A shell that you get when logging in to the console in text mode.
-
-A shell obtained by the command xterm &.
-
-A shell opened by the mysystem.sh script.
-
-A shell that you get on a remote host, for which you didn't have to give the login and/or password because you use SSH and maybe SSH keys.
-
-Can you explain why bash does not exit when you type Ctrl+C on the command line?
-
-How many processes are currently running on your system? Use ps and wc, the first line of output of ps is not a process!
-
-How to display the system hostname? Only the name, nothing more!
+6. ¿Qué comando utiliza para mostrar el nombre del sistema y sólo el nombre 
+del sistema, nada mas?  
 
 
