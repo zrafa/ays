@@ -9,13 +9,13 @@ Algunos ejercicios de precalentamiento:
 
 2. Obtenga la versión de bash que esta utilizando, opción --version. 
 
-3. Qué archivos de configuración son leídos cuando ingresamos al sistema a
+3. Qué archivos de configuración son leídos cuando ingresamos al sistema.
 
-4. Puede explicar por qué bash no termina al escribir Ctrl+C en la linea de 
-comandos. 
+4. Puede explicar por qué bash no termina al tipear Ctrl+C en la linea de 
+comandos.
 
-5. Cuántos procesos se encuentran en ejecución en el sistema. Recuerde 
-descontar los encabezados si utiliza ps y wc. 
+5. ¿Cuántos procesos se encuentran en ejecución en el sistema?. Recuerde
+descontar los encabezados si utiliza ps y wc.
 
 6. ¿Qué comando utiliza para mostrar el nombre del sistema y sólo el nombre 
 del sistema, nada mas?  
