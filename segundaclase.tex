@@ -1,0 +1,155 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\documentclass{beamer}
+% Replace the \documentclass declaration above
+% with the following two lines to typeset your 
+% lecture notes as a handout:
+%\documentclass{article}
+%\usepackage{beamerarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{verbatim}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%  \usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+
+\title{Automatización y Scripting}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+
+
+\begin{frame}{}
+El shell de UNIX interpreta los comandos del usuario. Los comandos pueden ser :
+\begin{itemize}
+\item Escritos directamente 
+\item Leidos desde un archivo llamado programa script del shell 
+\end{itemize}
+\\ \
+
+Los scripts son interpretados, no compilados
+\begin{itemize}
+\item El shell lee los comandos desde el script linea por linea, y busca los comandos en el sistema.
+\item Un programa compilado es generado por un compilador, y es un archivo ejecutable.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{}
+Algunos de los shells más conocidos : 
+\begin{itemize}
+\item sh (Bourne Shell)
+\item bash (Bourne Again shell)
+\item csh (C shell)
+\item (TENEX C)
+\item ksh (Korn shell)
+\end{itemize}
+\\ \
+
+Puede observar en su sistema GNU/Linux que shells tiene disponible con : \texttt{cat /etc/shells}
+
+
+\end{frame}
+
+
+\begin{frame}{}
+Archivos leídos por BASH : 
+
+\texttt{ /etc/profile}
+
+\texttt{~/.bash\_profile, ~/.bash\_login or ~/.profile }
+
+\texttt{~/.bash\_logout (leído al salir) }
+
+\end{frame}
+
+
+\begin{frame}{}
+Requisitos para aprobar la materia : 
+\begin{itemize}
+\item 13 de Junio : PARCIAL; o
+\item 27 de Junio : RECUPERATORIO DEL PARCIAL
+\item Un trabajo práctico a entregar durante el cursado (antes del parcial)
+\end{itemize}
+
+Dias sin clase : 
+\begin{itemize}
+\item 18 de Abril FERIADO : Viernes Santo
+\item 2 de Mayo FERIADO : Puente Turistico
+\item 20 de Junio FERIADO : Día Paso a la Inmortalidad del Gral. Manuel Belgrano
+\end{itemize}
+Cantidad total de clases : 11.
+\end{frame}
+
+\begin{frame}{}
+Bibliografía : 
+\begin{itemize}
+\item man bash
+\item Libro Bash Guide for Beginners, de Machtelt Garrels 
+\item Libro Advanced Bash-Scripting Guide, de Mendel Cooper
+\end{itemize}
+
+Ambos libros están disponibles en varios formatos diferentes en :
+
+Bibliografía suplementaria sugerida : 
+\begin{itemize}
+\item Libro El Entorno De Programacion Unix, de Kernighan, y Rob Pike
+\end{itemize}
+
+\end{frame}
+
+
+
+\end{document}
+
+
