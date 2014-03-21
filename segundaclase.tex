@@ -115,20 +115,51 @@ Archivos leídos por BASH :
 
 
 \begin{frame}{}
-Requisitos para aprobar la materia : 
+\textbf{Escribiendo un script en BASH }
 \begin{itemize}
-\item 13 de Junio : PARCIAL; o
-\item 27 de Junio : RECUPERATORIO DEL PARCIAL
-\item Un trabajo práctico a entregar durante el cursado (antes del parcial)
+\item Un programa script es un archivo de texto.
+\item La primer línea del archivo debe ser : \texttt{\#!/bin/bash}
+\item Debe tener permiso de ejecución (o ser ejecutado explicitamente con un shell).
+\item Se sugiere dar un nombre acorde a lo que el script intenta realizar.
+\item \textbf{No utilice nombres de programas existentes para no crear confusion}
+\item Generalmente se suele colocar la extensión .sh al nombre del script
 \end{itemize}
 
-Dias sin clase : 
+\end{frame}
+
+\begin{frame}{}
+\textbf{Ejecutando un script en BASH }
 \begin{itemize}
-\item 18 de Abril FERIADO : Viernes Santo
-\item 2 de Mayo FERIADO : Puente Turistico
-\item 20 de Junio FERIADO : Día Paso a la Inmortalidad del Gral. Manuel Belgrano
+\item El script debe ser copiado dentro de un directorio de PATH; o
+\item debe ser ejecutado con la ruta relativa o completa. Ej. : \texttt{./script.sh}
+\item Tambien puede ser ejecutado explicitamente por un shell. Ejemplo : \texttt{bash script.sh}
 \end{itemize}
-Cantidad total de clases : 11.
+
+\end{frame}
+
+\begin{frame}{}
+\textbf{Algunas prácticas al escribir scripts }
+\begin{itemize}
+\item Se aconseja explicitamente indicar el shell con \#!
+\item Deberia contar con al menos dos tipos de comentarios :
+\begin{enumerate}
+\item Un comentario al principio del programa script explicando a los usuarios que HACE el script.
+\item Comentarios en el código, ya que no somos las únicas personas que leeremos el script 
+(los administradores suelen ejecutar y modificar scripts escritos por otros administradores)
+\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{}
+\textbf{Ejemplo de un script escrito en BASH }
+
+\begin{center}
+ \includegraphics{script2.png}
+ % redireccionamiento.gif: 502x248 pixel, 72dpi, 17.71x8.75 cm, bb=0 0 502 248
+\end{center}
+
 \end{frame}
 
 \begin{frame}{}
