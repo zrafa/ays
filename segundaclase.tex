@@ -79,7 +79,7 @@ El shell de UNIX interpreta los comandos del usuario. Los comandos pueden ser :
 Los scripts son interpretados, no compilados
 \begin{itemize}
 \item El shell lee los comandos desde el script linea por linea, y busca los comandos en el sistema.
-\item Un programa compilado es generado por un compilador, y es un archivo ejecutable.
+\item Un programa compilado es generado por un compilador, y es un archivo binario ejecutable.
 \end{itemize}
 
 \end{frame}
@@ -91,7 +91,7 @@ Algunos de los shells más conocidos :
 \item sh (Bourne Shell)
 \item bash (Bourne Again shell)
 \item csh (C shell)
-\item (TENEX C)
+\item tcsh (TENEX C)
 \item ksh (Korn shell)
 \end{itemize}
 \\ \
@@ -105,11 +105,11 @@ Puede observar en su sistema GNU/Linux que shells tiene disponible con : \texttt
 \begin{frame}{}
 Archivos leídos por BASH : 
 
-\texttt{ /etc/profile}
+\texttt{/etc/profile}
 
-\texttt{~/.bash\_profile, ~/.bash\_login or ~/.profile }
+\texttt{\$HOME/.bash\_profile, \$HOME/.bash\_login o \$HOME/.profile }
 
-\texttt{~/.bash\_logout (leído al salir) }
+\texttt{\$HOME/.bash\_logout (leído al salir) }
 
 \end{frame}
 
@@ -118,11 +118,11 @@ Archivos leídos por BASH :
 \textbf{Escribiendo un script en BASH }
 \begin{itemize}
 \item Un programa script es un archivo de texto.
-\item La primer línea del archivo debe ser : \texttt{\#!/bin/bash}
+\item La primer línea del archivo debe ser : \texttt{\#!/bin/bash}.
 \item Debe tener permiso de ejecución (o ser ejecutado explicitamente con un shell).
-\item Se sugiere dar un nombre acorde a lo que el script intenta realizar.
-\item \textbf{No utilice nombres de programas existentes para no crear confusion}
-\item Generalmente se suele colocar la extensión .sh al nombre del script
+\item Debería tener un nombre acorde a lo que el script intenta realizar.
+\item \textbf{No utilice nombres de programas existentes.}
+\item Se suele colocar la extensión .sh al nombre del script.
 \end{itemize}
 
 \end{frame}
@@ -130,9 +130,9 @@ Archivos leídos por BASH :
 \begin{frame}{}
 \textbf{Ejecutando un script en BASH }
 \begin{itemize}
-\item El script debe ser copiado dentro de un directorio de PATH; o
-\item debe ser ejecutado con la ruta relativa o completa. Ej. : \texttt{./script.sh}
-\item Tambien puede ser ejecutado explicitamente por un shell. Ejemplo : \texttt{bash script.sh}
+\item Puede ser copiado dentro de un directorio de PATH y ejecutado.
+\item Puede ser ejecutado con la ruta relativa o completa. Ej. : \texttt{./script.sh}.
+\item Tambien puede ser ejecutado explicitamente por un shell. Ejemplo : \texttt{bash script.sh}.
 \end{itemize}
 
 \end{frame}
