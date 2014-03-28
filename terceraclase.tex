@@ -185,42 +185,72 @@ $ echo Los siguientes usuarios están online: `who`
 \end{Verbatim}
 
 
-\begin{frame}{}
-\textbf{Ejecutando un script en BASH }
+\begin{Verbatim}
+
+# Comillas - Analizar :
+
+
+
+
+$ precio='$30'
+$ echo $precio 
+$30 
+$ item=helado 
+$ linea="El $item vale $precio" 
+$ echo $linea
+El helado vale $30
+
+
+\end{Verbatim}
+
+
+
+
+\begin{frame}
+\frametitle{Palabras Reservadas}
+ \begin{itemize}
+       \item Son palabras que  tienen  un  significado  especial
+       para  el  shell :\\
+
+\texttt{       ! case  do done elif else esac fi for function if in select then  until while \{ \} time [[ ]]}\\
+
+\item Permiten crear órdenes compuestas en forma de bloques de código, órdenes condicionales y repetitivas.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Palabras Reservadas - for - Repetitiva}
+ \begin{itemize}
+\item \texttt{for nombre [ in palabra; ] do lista ; done}
+
+\item La lista de palabras que va detrás de in se  expande,  generando
+              una  lista  de elementos. La variable nombre se define como cada
+              elemento de la lista en cada iteración, y lista se ejecuta  cada
+              vez. Ejemplos :\\
+
+
+\texttt{       Ej. 1: for i in 1 2 3 4 5 ; do echo \$i ; done}\\
+\texttt{       Ej. 2: for i in `ls /`; do echo \$i ; done}\\
+\texttt{       Ej. 3: }\\
+\texttt{       for i in 1 2 3 `ls /`; do }\\ \ \ \
+\texttt{           echo \$i}\\
+\texttt{       done}
+
+
+
+\end{itemize}
+\end{frame}
+
+
+Bibliografía : 
 \begin{itemize}
-\item El script debe ser copiado dentro de un directorio de PATH; o
-\item debe ser ejecutado con la ruta relativa o completa. Ej. : \texttt{./script.sh}
-\item Tambien puede ser ejecutado explicitamente por un shell. Ejemplo : \texttt{bash script.sh}
+\item man bash
+\item Libro Bash Guide for Beginners, de Machtelt Garrels 
+\item Libro Advanced Bash-Scripting Guide, de Mendel Cooper
 \end{itemize}
 
-\end{frame}
+Ambos libros están disponibles en varios formatos diferentes en :
 
-\begin{frame}{}
-\textbf{Algunas prácticas al escribir scripts }
-\begin{itemize}
-\item Se aconseja explicitamente indicar el shell con \#!
-\item Deberia contar con al menos dos tipos de comentarios :
-\begin{enumerate}
-\item Un comentario al principio del programa script explicando a los usuarios que HACE el script.
-\item Comentarios en el código, ya que no somos las únicas personas que leeremos el script 
-(los administradores suelen ejecutar y modificar scripts escritos por otros administradores)
-\end{enumerate}
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{}
-\textbf{Ejemplo de un script escrito en BASH }
-
-\begin{center}
- \includegraphics{script2.png}
- % redireccionamiento.gif: 502x248 pixel, 72dpi, 17.71x8.75 cm, bb=0 0 502 248
-\end{center}
-
-\end{frame}
-
-\begin{frame}{}
 Bibliografía : 
 \begin{itemize}
 \item man bash
