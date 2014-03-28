@@ -38,4 +38,8 @@ FAI - TUASSL - 2014
 	192.168.0.34 DOWN?
  
 	Responda las siguientes preguntas:
-	a) ¿Por que cree que 
+	a) ¿ Por que cree que el script dice "DOWN?" y no simplemente "DOWN" ?
+	b) ¿ Es su script lo suficientemente general para ser ejecutado en 
+	   cualquier red ? Si no es el caso, decriba sin efectivamente 
+	   implementarlo que modificaciones deberia realizar para que lo sea ?
+	   Ejemplo: deberia obtener la mascara, etc.  

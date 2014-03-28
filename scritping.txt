@@ -529,4 +529,117 @@ Arreglos:
 Los arreglos son variables que contienen una colección de valores, almacenados
 como una secuencia de elementos ordenados. 
 
+El nombre de un arreglo hace referencia a todo el 
+
+lechnerm@melodia:~$ arr[0]="hola"
+lechnerm@melodia:~$ arr[1]="que"
+lechnerm@melodia:~$ arr[4]="tal"
+lechnerm@melodia:~$ echo ${arr[*]}
+hola que tal
+lechnerm@melodia:~$ echo ${!arr[*]}
+0 1 4
+lechnerm@melodia:~$ echo ${!arr[*]:3}
+
+lechnerm@melodia:~$ echo ${arr[*]:3}
+tal
+lechnerm@melodia:~$ echo ${!arr[*]:3}
+
+lechnerm@melodia:~$ echo ${!arr[*]:1:3}
+
+lechnerm@melodia:~$ echo ${arr[*]:1:3}
+que tal
+lechnerm@melodia:~$ echo ${#arr[*]}
+3
+lechnerm@melodia:~$ echo ${#arr[4]}
+3
+lechnerm@melodia:~$ 
+
+Realizando aritmetica sencilla
+------------------------------
+
+Es posible incorporar expresiones aritmeticas y lógicas 
+en la linea de comandos. El shell evaluará la expresión,
+sustituyendo la misma con su reslutado. Sin embargo, el 
+shell solo trabaja con enteros positivos. 
+
+
+Declarar el tipo de las variables (para los shells que las
+soportan) permite mejorar la performance. El comando typeset
+sirve a este propósito. 
+
+$ typeset -i itemID=5
+
+Si bien la base utilizada es decimal, esto puede cambiarse
+del siguiente modo:
+
+typeset -i nibble=2#1010
+$ nibble=2#1010
+
+es equivalente a 
+typset -i2 nibble=1010
+
+En las versiones de unix anteriores el comando expr era
+utilizado para evaluar las expresiones:
+
+$ i=`expr $i+1`
+
+Actualmente fue reemplazado por let:
+
+$ let i=i+1
+
+Si se quieren incluir espacios en la expresion anterior entonces
+se debe encerrar la expresion entre comillas dobles:
+
+$ let "i = i + 1"
+
+Tambien es equivalente usar doble parentesis
+
+$ ((i=i+1))
+
+El orden de precedencia es el convencional, a no ser
+que se utilicen parentesis. Ademas de * / + y -, se 
+soporta el operador modulo % 
+
+Operaciones lógicas bit a bit
+-----------------------------
+
+Operadores logicos:
+	&& and (0 es true)
+	|| or
+	! negacion 
+
+Mientras que los operadores logicos comparan y manipulan 
+expresiones completas, las operaciones bit a bit realizan 
+operaciones booleanas sobre bit individuales. Estos son 
+normalmente utilizados sobre operadores binarios. 
+
+Operadores bit a bit: 
+	& and 
+	| or
+	^ xor
+	~ negacion 
+
+El shell tambien soporta opeaciones de corrimientos sobre
+bits: 
+	<< --> ((2#1001<<1)) = 2#10010
+	>> --> ((2#1001>>1)) = 2#100
+
+
+Operadores adicionales:
+-----------------------
+
+Comparadores:
+	< menor que 
+	> mayor que 
+	<= menor o igual 
+	>= mayor o igual 
+	== igual 
+	!= no igual
+
+Incremento/decremento:
+	+= ejemplo: ((i+=1))
+	-= ejemplo: ((i-=1))
+
+
+
 
