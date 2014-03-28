@@ -5,9 +5,9 @@ FAI - TUASSL - 2014
 
 
 
-1 - El comando convert permite manipular y realizar conversiones sobre distinto
-tipo de archivos. Utilice el comando convert y la estructura for para crear
-un script llamado jpg2pdf tal que 
+1 - El comando convert permite manipular y realizar conversiones sobre distintos
+tipos de archivos. Utilice el comando convert y la estructura for para crear
+un script llamado jpg2pdf.sh tal que 
    * convierta todos los archivos de tipo jpg en el directorio actual, a 
      archivos de tipo pdf.
    * el nombre del archivo resultante debe ser igual al nombre original con 

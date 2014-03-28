@@ -113,16 +113,33 @@ Los shell UNIX más avanzados soportan cuatro tipos de datos:
 
 
 \begin{frame}{}
-\textbf{Escribiendo un script en BASH }
+\frametitle{Variables locales y su alcance}
 \begin{itemize}
-\item Un programa script es un archivo de texto.
-\item La primer línea del archivo debe ser : \texttt{\#!/bin/bash}
-\item Debe tener permiso de ejecución (o ser ejecutado explicitamente con un shell).
-\item Se sugiere dar un nombre acorde a lo que el script intenta realizar.
-\item \textbf{No utilice nombres de programas existentes para no crear confusion}
-\item Generalmente se suele colocar la extensión .sh al nombre del script
+\item El alcance de una variable local está destinado al shell en donde se ha creado la variable. Los procesos hijos no pueden acceder a las variables locales del padre.
+\item Una variable puede ser agregada al entorno para ser vista por los procesos hijoas mediante la orden \texttt{export}
 \end{itemize}
-\end{frame}
+\end{frame}{}
+
+\begin{Verbatim}
+
+
+# Variables locales y su alcance
+
+
+
+$ TIERRA=mundo	# definicion de una variable local
+$ echo $TIERRA	# muestra el contenido de TIERRA
+mundo
+$ bash		# se inicia un nuevo shell hijo
+$ echo $TIERRA	# la variable TIERRA está vacía!
+$ exit		# se vuelve al shell anterior
+$ echo $TIERRA	# la variable TIERRA aún existe acá
+mundo
+$ export TIERRA
+$ bash		# se inicia un nuevo shell hijo
+$ echo $TIERRA	# la variable TIERRA es vista!
+mundo
+\end{Verbatim}
 
 \begin{frame}{}
 \textbf{Ejecutando un script en BASH }
