@@ -47,7 +47,7 @@ FAI - TUASSL - 2014
 	   que este solo se ejecute si efectivamente el comando ping se 
            encuentra disponible.   
 
-3 - Escriba un script que indefinidamente revise cada 10 segundos cuantos 
+4 - Escriba un script que indefinidamente revise cada 10 segundos cuantos 
     usuarios se encuentran logueados en el sistema. El script no deberá 
     emitir salida mientras haya menos de tres usuarios. Cuando ingrese un 
     tercer usuario el script deberá imprimir en todas las terminales un cartel
