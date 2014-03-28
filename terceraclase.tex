@@ -236,21 +236,34 @@ El helado vale $30
 \texttt{           echo \$i}\\
 \texttt{       done}
 
+\end{itemize}
+\end{frame}
 
+\begin{frame}
+\frametitle{Palabras Reservadas - for - Repetitiva}
+ \begin{itemize}
+\item \texttt{for nombre [ in palabra; ] do lista ; done}
+
+\item La lista de palabras que va detrás de in se  expande,  generando
+              una  lista  de elementos. La variable nombre se define como cada
+              elemento de la lista en cada iteración, y lista se ejecuta  cada
+              vez. Ejemplos :\\
+
+
+\texttt{       Ej. 1: for i in 1 2 3 4 5 ; do echo \$i ; done}\\
+\texttt{       Ej. 2: for i in `ls /`; do echo \$i ; done}\\
+\texttt{       Ej. 3: }\\
+\texttt{       for i in 1 2 3 `ls /`; do }\\ \ \ \
+\texttt{           echo \$i}\\
+\texttt{       done}
 
 \end{itemize}
 \end{frame}
 
 
-Bibliografía : 
-\begin{itemize}
-\item man bash
-\item Libro Bash Guide for Beginners, de Machtelt Garrels 
-\item Libro Advanced Bash-Scripting Guide, de Mendel Cooper
-\end{itemize}
 
-Ambos libros están disponibles en varios formatos diferentes en :
 
+\begin{frame}
 Bibliografía : 
 \begin{itemize}
 \item man bash
