@@ -1,0 +1,24 @@
+----------------------------------
+TP03 - Automatización y scripting 
+FAI - TUASSL - 2014
+----------------------------------
+
+
+
+1 - El comando convert permite manipular y realizar conversiones sobre distinto
+tipo de archivos. Utilice el comando convert y la estructura for para crear
+un script llamado jpg2pdf tal que 
+   * convierta todos los archivos de tipo jpg en el directorio actual, a 
+     archivos de tipo pdf.
+   * el nombre del archivo resultante debe ser igual al nombre original con 
+     el agregado .pdf al final. Ejemplo, si el archivo original se llama 
+     foto.jpg, el archivo resultante deberá llamarse foto.jpg.pdf
+
+2 - Ejecute las siguientes sentencias: 
+    CADENA=cadenalarga ; echo $CADENA ${CADENA%%larga}
+    CADENA=cadenalarga ; echo $CADENA ${CADENA##cadena}
+    
+    Saque conclusiones y modifique su script en el ejercicio 1 para que el 
+    archivo resultante sea foto.pdf en lugar de foto.txt.pdf
+
+
