@@ -122,10 +122,7 @@ Los shell UNIX más avanzados soportan cuatro tipos de datos:
 
 \begin{Verbatim}
 
-
 # Variables locales y su alcance
-
-
 
 $ TIERRA=mundo	# definicion de una variable local
 $ echo $TIERRA	# muestra el contenido de TIERRA
@@ -139,7 +136,54 @@ $ export TIERRA
 $ bash		# se inicia un nuevo shell hijo
 $ echo $TIERRA	# la variable TIERRA es vista!
 mundo
+$ EARTH=$TIERRA	# definimos una nueva variable
+$ echo $EARTH	# muestra el contenido de EARTH
+mundo
 \end{Verbatim}
+
+\begin{frame}{}
+\frametitle{Comillas}
+% Las comillas se utilizan para evitar que el shell procese espacios y caracteres especiales.
+\begin{itemize}
+\item Las comillas simples (') permiten ocultar el significado de todos los caracteres 
+		especiales, o metacaracteres. Incluyendo comillas dobles, 
+		invertidas, espacios y saltos de linea. Por este motivo evitan 
+		la sustitución de variables y comandos.
+\item Las comillas dobles (") permiten ocultar el significado de los caracteres especiales, 
+ 		espacios y saltos de linea con excepción de las comillas 
+ 		invertidas, y los caracteres \$ y barra invertida. Permiten la expansión de variables y comandos.
+\item
+Las Comillas invertidas (`) permiten substituir órdenes con su resultado.
+		Cuando encerramos un comando entre comillas invertidas, el shell 
+ejecuta y 
+		sustituye el comando y las comillas invertidas por el resultado del 
+		la ejecución.
+\end{itemize}
+\end{frame}{}
+
+
+\begin{Verbatim}
+
+# Comillas - Verificar : 
+
+$ echo '* y $HOME'	# comillas simples
+$ echo * y $HOME
+
+$ HOGARYRUTA="$HOME y $PATH"	# comillas dobles
+$ echo $HOGARYRUTA
+$ NUEVOHOGAR=$HOME y $PATH
+
+
+$ NOMBRE=`hostname`	# comillas invertidas
+$ echo $NOMBRE
+$ echo Los siguientes usuarios están online: `who` 
+
+# Puede utilizar tambien $(hostame) en lugar de
+# las comillas invertidas!
+
+
+\end{Verbatim}
+
 
 \begin{frame}{}
 \textbf{Ejecutando un script en BASH }
