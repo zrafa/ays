@@ -21,12 +21,13 @@ FAI - TUASSL - 2014
     archivo resultante sea foto.pdf en lugar de foto.txt.pdf
 
 3 - Cree un script llamado vivas.sh tal que: 
-	* Envie un (y solo un) paquete ICMP a cada maquina de la red a la que
+	* Envíe un (y solo un) paquete ICMP a cada maquina de la red a la que
 	pertenece la computadora en la que esta trabajando. 
 	* La salida debe ser la siguiente (ningún otro texto puede mostrarse):
 	IP UP 
 	IP DOWN? 
-        
+       
+	Ayuda: /dev/null  
 	Ejemplo
 	$ ./vivas.sh 
 	192.168.0.30 DOWN?
@@ -45,4 +46,29 @@ FAI - TUASSL - 2014
 	   intentar ejecutarlo ? Si no es el caso, modifique el script para 
 	   que este solo se ejecute si efectivamente el comando ping se 
            encuentra disponible.   
-	
+
+3 - Escriba un script que indefinidamente revise cada 10 segundos cuantos 
+    usuarios se encuentran logueados en el sistema. El script no deberá 
+    emitir salida mientras haya menos de tres usuarios. Cuando ingrese un 
+    tercer usuario el script deberá imprimir en todas las terminales un cartel
+    que diga: !! ALERTA: MAS DE DOS USUARIOS PRESENTES !! y a continuación
+    la lista de usuarios logueados. Ejemplo de salida:
+
+        !! ALERTA: MAS DE DOS USUARIOS PRESENTES !!
+	lechnerm tty7         2014-02-26 13:38 (:0)
+	lechnerm pts/0        2014-03-27 08:48 (:0)
+	lechnerm pts/1        2014-02-26 13:39 (:0)
+	lechnerm pts/2        2014-02-26 13:39 (:0)
+	lechnerm pts/3        2014-02-26 13:42 (:0)
+	lechnerm pts/4        2014-03-28 18:06 (:0)
+ 
+    Responda las siguientes preguntas:
+	a)  ¿ Puede el script ser ejecutado por cualquier usuario ?
+	b)  Modifique el script para que verifique que el usuario que esta
+	    ejecutando el script es root y en caso contrario aborte la 
+            ejecución imprimiendo el cartel "Solo root puede ejecutar este 
+	    programa!" 
+
+
+
+
