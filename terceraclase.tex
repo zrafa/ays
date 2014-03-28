@@ -240,25 +240,63 @@ El helado vale $30
 \end{frame}
 
 \begin{frame}
-\frametitle{Palabras Reservadas - for - Repetitiva}
+\frametitle{Palabras Reservadas - if - Condicional}
  \begin{itemize}
-\item \texttt{for nombre [ in palabra; ] do lista ; done}
-
-\item La lista de palabras que va detrás de in se  expande,  generando
-              una  lista  de elementos. La variable nombre se define como cada
-              elemento de la lista en cada iteración, y lista se ejecuta  cada
-              vez. Ejemplos :\\
-
-
-\texttt{       Ej. 1: for i in 1 2 3 4 5 ; do echo \$i ; done}\\
-\texttt{       Ej. 2: for i in `ls /`; do echo \$i ; done}\\
-\texttt{       Ej. 3: }\\
-\texttt{       for i in 1 2 3 `ls /`; do }\\ \ \ \
-\texttt{           echo \$i}\\
-\texttt{       done}
+\item \texttt{ if  lista;  then lista; [ elif lista; then lista; ] ... [ else lista; ] fi }
+\item 
+              La lista if se ejecuta. Si su estado de salida es cero, se  ejecuta  la  lista  then.  De  otro modo, se ejecuta por turno cada
+              lista elif, y si su estado de salida  es  cero,  se  ejecuta  la
+              lista  then  correspondiente  y  la orden se completa. Si no, se
+              ejecuta la lista else si está presente. Ejemplos :\\
 
 \end{itemize}
 \end{frame}
+
+\begin{Verbatim}
+
+# IF - Analizar :
+
+
+
+
+A=/etc/shells
+B=`ls /etc/she*`
+
+if [[ "$A" == "$B" ]] ; then echo "A y B son iguales" ; fi
+
+if [[ "$A" != "$B" ]] ; then
+	echo "A y B son distintos"
+else
+	echo "A y B son iguales"
+fi
+
+\end{Verbatim}
+
+
+
+
+\begin{Verbatim}
+
+################################################
+#
+# Finalizando Hoy - Comandos Utiles
+#
+# Trabajo Practico 
+# Analizar y explicar que sucede en cada caso :
+
+ls -l / | tail 
+ls -l / | head 
+ls -l / | head -12
+
+ls -l / | awk '{print $9}'
+ls -l / | awk '{print $5}'
+ls -l / | awk '{print $5" "$9}'
+ls -l / | awk '{print $5" "$9}' | sort -n
+
+ls /lib
+ls /lib | grep lib
+ls /lib | grep -v lib
+\end{Verbatim}
 
 
 
