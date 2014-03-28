@@ -3,8 +3,6 @@ TP03 - Automatización y scripting
 FAI - TUASSL - 2014
 ----------------------------------
 
-
-
 1 - El comando convert permite manipular y realizar conversiones sobre 
     distintos tipos de archivos. Utilice el comando convert y la estructura 
     for para crear un script llamado jpg2pdf.sh tal que :
@@ -25,7 +23,7 @@ FAI - TUASSL - 2014
 3 - Cree un script llamado vivas.sh tal que: 
 	* Envie un (y solo un) paquete ICMP a cada maquina de la red a la que
 	pertenece la computadora en la que esta trabajando. 
-	* La salida debe ser la siguiente (ningun otro texto puede mostrarse):
+	* La salida debe ser la siguiente (ningún otro texto puede mostrarse):
 	IP UP 
 	IP DOWN? 
         
@@ -40,6 +38,11 @@ FAI - TUASSL - 2014
 	Responda las siguientes preguntas:
 	a) ¿ Por que cree que el script dice "DOWN?" y no simplemente "DOWN" ?
 	b) ¿ Es su script lo suficientemente general para ser ejecutado en 
-	   cualquier red ? Si no es el caso, decriba sin efectivamente 
-	   implementarlo que modificaciones deberia realizar para que lo sea ?
-	   Ejemplo: deberia obtener la mascara, etc.  
+	   cualquier red ? Si no es el caso, describa sin efectivamente 
+	   implementarlo que modificaciones debería realizar para que lo sea ?
+	   Ejemplo: debería obtener la mascara, etc.  
+	c) ¿ Verifica su script que el comando ping este disponible antes de
+	   intentar ejecutarlo ? Si no es el caso, modifique el script para 
+	   que este solo se ejecute si efectivamente el comando ping se 
+           encuentra disponible.   
+	
