@@ -5,14 +5,15 @@ FAI - TUASSL - 2014
 
 
 
-1 - El comando convert permite manipular y realizar conversiones sobre distintos
-tipos de archivos. Utilice el comando convert y la estructura for para crear
-un script llamado jpg2pdf.sh tal que 
-   * convierta todos los archivos de tipo jpg en el directorio actual, a 
-     archivos de tipo pdf.
-   * el nombre del archivo resultante debe ser igual al nombre original con 
-     el agregado .pdf al final. Ejemplo, si el archivo original se llama 
-     foto.jpg, el archivo resultante deberá llamarse foto.jpg.pdf
+1 - El comando convert permite manipular y realizar conversiones sobre 
+    distintos tipos de archivos. Utilice el comando convert y la estructura 
+    for para crear un script llamado jpg2pdf.sh tal que :
+
+	   * convierta todos los archivos de tipo jpg en el directorio actual,
+	    a archivos de tipo pdf.
+	   * el nombre del archivo resultante debe ser igual al nombre original
+	    con el agregado .pdf al final. Ejemplo, si el archivo original se 
+	    llama foto.jpg, el archivo resultante deberá llamarse foto.jpg.pdf
 
 2 - Ejecute las siguientes sentencias: 
     CADENA=cadenalarga ; echo $CADENA ${CADENA%%larga}
@@ -21,4 +22,20 @@ un script llamado jpg2pdf.sh tal que
     Saque conclusiones y modifique su script en el ejercicio 1 para que el 
     archivo resultante sea foto.pdf en lugar de foto.txt.pdf
 
-
+3 - Cree un script llamado vivas.sh tal que: 
+	* Envie un (y solo un) paquete ICMP a cada maquina de la red a la que
+	pertenece la computadora en la que esta trabajando. 
+	* La salida debe ser la siguiente (ningun otro texto puede mostrarse):
+	IP UP 
+	IP DOWN? 
+        
+	Ejemplo
+	$ ./vivas.sh 
+	192.168.0.30 DOWN?
+	192.168.0.31 DOWN?
+	192.168.0.32 DOWN?
+	192.168.0.33 UP
+	192.168.0.34 DOWN?
+ 
+	Responda las siguientes preguntas:
+	a) ¿Por que cree que 
