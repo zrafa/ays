@@ -1,0 +1,56 @@
+BASH
+====
+
+Variables
+Variables internas del shell
+Variable que usa el shell
+
+Palabras reservadas. Se explicarán minimante :
+	if	(condicionales)
+	case	(condicionales)
+	for 	(repetitivas)
+	while	(repetitivas)
+	echo
+	algunas mas
+	
+tests [[]] (())
+	Expresiones condicionales usando test -a -f -c
+	Uso con if
+
+Operadores logicos
+
+Comillas
+	simples
+	dobles
+	invertidas
+
+Redireccion
+
+Parametros
+
+Funciones
+
+Aritmetica
+
+Expansion y modificadores de variables
+
+=====Fin de BASH====
+
+
+Complementando la materia
+=========================
+
+Comandos utiles y divertidos
+	awk
+	sed
+	cut
+	convert ffmpeg a2ps ps2pdf dos2unix html2 etc
+	
+
+Planificacion
+	crontab
+	at
+
+Enviando mails de reporte
+	(no contempla configurar un host para enviar correos).
+	Explicar mailx o mail para enviar correos a gmail por smtp. O algo parecido.
