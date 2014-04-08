@@ -1,0 +1,49 @@
+Si el usuario no es root deberá mostrar las salidas de a, b y c
+Caso contrario deberá ejecutar todos los chequeos. 
+Uso de opciones --help 
+		-d disk 
+		-t time 
+		-l logfile 
+
+
+Encabezado: 
+####################################
+# hostname 			   #
+# estampilla de tiempo 		   #
+# archivo donde se reporta el log  #
+####################################
+	
+
+Resúmen de ejecución:
+########################################
+RESUMEN
+########################################
+	Total de chequeos realizados
+	Total de exito. 
+	Total de errores encontrados.
+	Total de advertencias. 
+
+Formato de salida de exito, error y advertencia por chequeo. 
+*** EXITO:       mensaje
+*** ERROR:       mensaje
+*** ADVERTENCIA: mensaje
+
+
+
+Verificaciones:
+---------------
+Verificación del servicio de ntp:
+	Si esta no esta ejecutandose entonces reportar como advertencia
+	ADVERTENCIAS. 
+	Si esta ejecutando y sincronizando entonces  EXITO, SINO ERROR. 
+
+Verificación de sistemas montados:
+Verificar si todos los sistmas de archivos en /etc/fstab se encuentran montados. 
+	Si todos estan montados, entonces no se muestra salida.  
+	Si alguno no se encuentra montado entonces ERROR.
+	
+
+
+
+
+
