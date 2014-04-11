@@ -1,0 +1,20 @@
+----------------------------------
+TP04 - Automatización y scripting 
+FAI - TUASSL - 2014
+----------------------------------
+
+1 - Escriba un script que trabaje sobre el directorio actual tal que, si 
+    alguno de los archivos conenidos en él es un archivo de tipo 
+    directorio, indique el la cantidad de archivos que contiene el 
+    subdirectorio en cuestión. Ejemplo 
+    de salida: 
+	Directorio de trabajo: /tmp
+	El directorio: gpg-GbORMP tiene 2 archivos
+	El directorio: hsperfdata_lechnerm tiene 2 archivos
+	El directorio: kde-lechnerm tiene 2 archivos
+	El directorio: ksocket-lechnerm tiene 3 archivos
+	El directorio: orbit-lechnerm tiene 1 archivos
+
+     Debe utilizar test para verificar si el archivo es un directorio. 
+
+
