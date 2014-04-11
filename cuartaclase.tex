@@ -133,22 +133,37 @@ Ejemplo :
 \begin{frame}
 \frametitle{Expresiones Condicionales}
 Las expresiones condicionales son empleadas por la orden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las mas utilizadas son :
- \begin{itemize}
-\item \texttt{ if  lista;  then lista; [ elif lista; then lista; ] ... [ else lista; ] fi }
-\item 
-              La lista if se ejecuta. Si su estado de salida es cero, se  ejecuta  la  lista  then.  De  otro modo, se ejecuta por turno cada
-              lista elif, y si su estado de salida  es  cero,  se  ejecuta  la
-              lista  then  correspondiente  y  la orden se completa. Si no, se
-              ejecuta la lista else si está presente. Ejemplos :\\
+
+\begin{itemize}
+\item \textbf{-a nombre} Verdadero si nombre existe y es un archivo.
+\item \textbf{-d nombre} Verdadero si nombre existe y es un directorio.
+\item \textbf{-f nombre} Verdadero si nombre existe y es un archivo común.
+\item \textbf{cad1 == cad2 } Verdadero si las cadenas son iguales.
+\item \textbf{cad1 != cad2 } Verdadero si las cadenas son distintas.
+\item \textbf{arg1 -eq arg2} Aritmético. Verdadero si arg1 es igual a arg2.
+\item \textbf{arg1 -lt arg2} Aritmético. Verdadero si arg1 es menor a arg2.
+\item \textbf{arg1 -gt arg2} Aritmético. Verdadero si arg1 es mayor a arg2.
 
 \end{itemize}
 \end{frame}
 
 \begin{Verbatim}
 
-# IF - Analizar :
+Ejemplos de expresiones condicionales para analizar :
 
+ N=`wc -l /etc/passwd`
+ echo $N
+ if [[ "$N" -gt "20" ]] ; then echo "Demasiados usuarios" ; fi
 
+ SEMANA=$(date +"%V")
+ if [[ $SEMANA -gt "10" ]]; then
+	echo "Ya van mas de 10 semanas, se viene el parcial seguro."
+ fi
+
+ if [[ "$(whoami)" != 'root' ]]; then
+        echo "Soy un tipo comun.. (Autor: Alumno F. de Narvaez)"
+        exit 1;
+ fi
 
 
 A=/etc/shells
