@@ -1,0 +1,216 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\documentclass{beamer}
+% Replace the \documentclass declaration above
+% with the following two lines to typeset your 
+% lecture notes as a handout:
+%\documentclass{article}
+%\usepackage{beamerarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{fancyvrb}
+% \usepackage{verbatim}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%  \usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+
+\title{Automatización y Scripting}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+
+\end{frame}
+
+
+
+
+
+\begin{Verbatim}
+
+# Variables locales y su alcance
+
+$ TIERRA=mundo	# definición de una variable local
+$ echo $TIERRA	# muestra el contenido de TIERRA
+mundo
+$ bash		# se inicia un nuevo shell hijo
+$ echo $TIERRA	# la variable TIERRA está vacía!
+$ exit		# se vuelve al shell anterior
+$ echo $TIERRA	# la variable TIERRA aún existe acá
+mundo
+$ export TIERRA
+$ bash		# se inicia un nuevo shell hijo
+$ echo $TIERRA	# la variable TIERRA es vista!
+mundo
+$ EARTH=$TIERRA	# definimos una nueva variable
+$ echo $EARTH	# muestra el contenido de EARTH
+mundo
+\end{Verbatim}
+
+\begin{frame}{}
+\frametitle{Órdenes Compuestas}
+Las órdenes compuestas más utilizadas son las siguientes :
+\begin{itemize}
+\item \textbf{Las que utilizan palabras reservadas : } if, for, select, case, while until, function.
+\item \textbf{Una (lista) }: lista  se  ejecuta  en  un subshell. Después de que la orden se completa, las asignaciones a variables y órdenes internas que afectaran al
+              entorno del shell no permanecen en efecto.
+\texttt{ Ejemplo :  (ls /etc ; A=2; ls /root;) }
+\item \textbf{Una \{ lista; \} }: 
+              lista se ejecuta simplemente en el entorno del shell en curso.  lista debe terminarse con un salto de línea o un punto y  coma.
+\texttt{ Ejemplo :  \{ ls /etc ; A=2; ls /root; \} }
+\item
+\textbf{Una ((expresión)) } La expresión se evalúa de acuerdo a las reglas de EVALUACIÓN ARITMÉTICA.  
+\item
+\textbf{Una [[ expresión ]] } Devuelve un estado de 0 ó 1 dependiendo de la EVALUACIÓN CONDICIONAL. 
+\end{itemize}
+\end{frame}{}
+
+
+
+\begin{Verbatim}
+
+
+Evaluaciones Aritmeticas más utilizadas :
+
+
+       - +    menos y más unarios
+       **     exponenciación
+       * / %  multiplicación, división, resto
+       + -    adición, sustracción
+
+
+Ejemplo :
+	x=2
+	y=3
+	rectangulo=$((x*2 + y*2))
+\end{Verbatim}
+
+
+\begin{frame}
+\frametitle{Expresiones Condicionales}
+Las expresiones condicionales son empleadas por la orden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las mas utilizadas son :
+ \begin{itemize}
+\item \texttt{ if  lista;  then lista; [ elif lista; then lista; ] ... [ else lista; ] fi }
+\item 
+              La lista if se ejecuta. Si su estado de salida es cero, se  ejecuta  la  lista  then.  De  otro modo, se ejecuta por turno cada
+              lista elif, y si su estado de salida  es  cero,  se  ejecuta  la
+              lista  then  correspondiente  y  la orden se completa. Si no, se
+              ejecuta la lista else si está presente. Ejemplos :\\
+
+\end{itemize}
+\end{frame}
+
+\begin{Verbatim}
+
+# IF - Analizar :
+
+
+
+
+A=/etc/shells
+B=`ls /etc/she*`
+
+if [[ "$A" == "$B" ]] ; then echo "A y B son iguales" ; fi
+
+if [[ "$A" != "$B" ]] ; then
+	echo "A y B son distintos"
+else
+	echo "A y B son iguales"
+fi
+
+\end{Verbatim}
+
+
+
+
+\begin{Verbatim}
+
+################################################
+#
+# Finalizando Hoy - Comandos Útiles
+# Trabajo Practico 
+# Analizar y explicar que sucede en cada caso :
+
+ls -l / | tail 
+ls -l / | head 
+ls -l / | head -12
+
+ls -l / | awk '{print $9}'
+ls -l / | awk '{print $5}'
+ls -l / | awk '{print $5" "$9}'
+ls -l / | awk '{print $5" "$9}' | sort -n
+
+ls /lib
+ls /lib | grep lib
+ls /lib | grep -v lib
+\end{Verbatim}
+
+
+
+
+\begin{frame}
+Bibliografía : 
+\begin{itemize}
+\item man bash
+\item Libro Bash Guide for Beginners, de Machtelt Garrels 
+\item Libro Advanced Bash-Scripting Guide, de Mendel Cooper
+\end{itemize}
+
+Ambos libros están disponibles en varios formatos diferentes en :
+
+Bibliografía suplementaria sugerida : 
+\begin{itemize}
+\item Libro El Entorno De Programación Unix, de Kernighan, y Rob Pike
+\end{itemize}
+
+\end{frame}
+
+
+
+\end{document}
+
+
