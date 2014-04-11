@@ -153,59 +153,83 @@ Ejemplos de expresiones condicionales para analizar :
 
  N=`wc -l /etc/passwd`
  echo $N
- if [[ "$N" -gt "20" ]] ; then echo "Demasiados usuarios" ; fi
+ if [[ "$N" -gt "20" ]] ; then 
+	echo "Demasiados usuarios"
+ fi
 
  SEMANA=$(date +"%V")
  if [[ $SEMANA -gt "10" ]]; then
-	echo "Ya van mas de 10 semanas, se viene el parcial seguro."
+	echo "Mas de 10 semanas, parcial seguro."
  fi
 
- if [[ "$(whoami)" != 'root' ]]; then
-        echo "Soy un tipo comun.. (Autor: Alumno F. de Narvaez)"
+ YO=$(whoami)
+ if [[ "$(YO)" != 'root' && "$(YO)" != 'sysadmin' ]]; then
+        echo "Soy un tipo comun.. (Autor: de Narvaez)"
         exit 1;
  fi
 
-
-A=/etc/shells
-B=`ls /etc/she*`
-
-if [[ "$A" == "$B" ]] ; then echo "A y B son iguales" ; fi
-
-if [[ "$A" != "$B" ]] ; then
-	echo "A y B son distintos"
-else
-	echo "A y B son iguales"
-fi
-
 \end{Verbatim}
 
+
+\begin{Verbatim}
+Crear el siguiente script con nombre /tmp/f.sh
+Ejecutar : /tmp/f.sh
+
+#!/bin/bash
+# Este script informa detalles de un archivo.
+
+FILENAME="$1"
+echo "Características de $FILENAME:"
+
+if [ -f $FILENAME ]; then
+  echo "Tamanio: $(ls -lh $FILENAME | awk '{ print $5 }')"
+  echo "Tipo: $(file $FILENAME | cut -d":" -f2 -)"
+  echo "Inodo: $(ls -i $FILENAME | cut -d" " -f1 -)"
+  echo "$(df -h $FILENAME | tail -1 | 
+awk '{ print "On",$1", \
+el cual esta montado como la ",$6,"particion."}')"
+fi
+\end{Verbatim}
+
+
+
+\begin{frame}
+\frametitle{Funciones - Argumentos}
+       Una  función define una serie de órdenes para ser ejecutadas bajo un nombre. Características
+
+\begin{itemize}
+\item No  se crea ningún nuevo proceso para ejecutar la función.
+\item Lo argumentos de  la  función  se
+       convierten  en los parámetros posicionales durante su ejecución.
+\item 
+       Variables  locales  a la función se pueden declarar con la orden interna local.  
+Normalmente, las
+       variables y sus valores se comparten entre la función y quien la llama, como variables globales.
+
+\item
+       Si se ejecuta la orden interna return en una función, éste finaliza y la ejecución se reanuda con
+       la  siguiente  orden tras la llamada a la función. 
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funciones - Argumentos - Continuación}
+\begin{itemize}
+\item La definición de una función es con \texttt{function nombre() \{ comandos; \} }
+\item Los argumentos se convierten en parámetros posicionales con los nombres \$1, \$2, ..., \$n
+\item Los argumentos es información que puede ser enviada a la función en forma de una lista de cadenas separadas por espacio.\\ 
+\item Los parámetros posicionales son variables, por lo que pueden ser utilizadas como las definidas explicitamente.
+\texttt{Ejemplo : function sumar()\{ echo \$((\$1+\$2+\$3)); \} }\\ 
+\texttt{Ejemplo de llamada : sumar 2 3 4 }
+\end{itemize}
+\end{frame}
 
 
 
 \begin{Verbatim}
-
-################################################
-#
-# Finalizando Hoy - Comandos Útiles
-# Trabajo Practico 
-# Analizar y explicar que sucede en cada caso :
-
-ls -l / | tail 
-ls -l / | head 
-ls -l / | head -12
-
-ls -l / | awk '{print $9}'
-ls -l / | awk '{print $5}'
-ls -l / | awk '{print $5" "$9}'
-ls -l / | awk '{print $5" "$9}' | sort -n
-
-ls /lib
-ls /lib | grep lib
-ls /lib | grep -v lib
-\end{Verbatim}
-
-
-
+#!/bin/bash
+# Este script informa detalles de un archivo.
 
 \begin{frame}
 Bibliografía : 
