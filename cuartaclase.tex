@@ -70,26 +70,6 @@
 
 
 
-\begin{Verbatim}
-
-# Variables locales y su alcance
-
-$ TIERRA=mundo	# definición de una variable local
-$ echo $TIERRA	# muestra el contenido de TIERRA
-mundo
-$ bash		# se inicia un nuevo shell hijo
-$ echo $TIERRA	# la variable TIERRA está vacía!
-$ exit		# se vuelve al shell anterior
-$ echo $TIERRA	# la variable TIERRA aún existe acá
-mundo
-$ export TIERRA
-$ bash		# se inicia un nuevo shell hijo
-$ echo $TIERRA	# la variable TIERRA es vista!
-mundo
-$ EARTH=$TIERRA	# definimos una nueva variable
-$ echo $EARTH	# muestra el contenido de EARTH
-mundo
-\end{Verbatim}
 
 \begin{frame}{}
 \frametitle{Órdenes Compuestas}
@@ -227,9 +207,8 @@ Normalmente, las
 
 
 
-\begin{Verbatim}
-#!/bin/bash
-# Este script informa detalles de un archivo.
+
+
 
 \begin{frame}
 Bibliografía : 
