@@ -5,6 +5,11 @@ Variables
 Variables internas del shell
 Variable que usa el shell
 
+Comillas
+	simples
+	dobles
+	invertidas
+
 Palabras reservadas. Se explicarán minimante :
 	if	(condicionales)
 	case	(condicionales)
@@ -18,11 +23,6 @@ tests [[]] (())
 	Uso con if
 
 Operadores logicos
-
-Comillas
-	simples
-	dobles
-	invertidas
 
 Redireccion
 

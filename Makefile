@@ -5,4 +5,4 @@ all:
 	pdflatex cuartaclase.tex
 
 clean:
-	rm *pdf *aux *log
+	rm *pdf *aux *log *.nav *.out *.toc *.snm
