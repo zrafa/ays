@@ -43,6 +43,29 @@ Verificar si todos los sistmas de archivos en /etc/fstab se encuentran montados.
 	Si alguno no se encuentra montado entonces ERROR.
 	
 
+Memoria :
+ - Verificar cuanta memoria RAM tiene el sistema, cuanta en uso y cuanta libre.
+ - Mostrar los 5 procesos que mas memoria RAM utilizan.
+
+CPU :
+ - Verificar el uso de CPU. Cuanto se está utilizando para procesos, cuanto
+   para el sistema, cuanta espera hay de E/S, y cuanto % de CPU hay disponible.
+ - Mostrar los 5 procesos que mas CPU están utilizando.
+
+RED :
+ - Mostrar la configuracion de la placa de red principal. Velocidad (100Mbit/s,    1Gbit/s, Full duplex, half duplex).
+ - Verificar el uso del ancho de banda de la red. Cuánto está en uso y cuanto
+   libre.
+ - Mostrar los 5 procesos que más ancho de banda de la red están utilizando.
+
+Disco :
+  - Mostrar la configuracion del disco principal del sistema y del sistema
+    de archivo raiz.
+  - Mostrar los 5 procesos que mas E/S están realizando a disco.
+
+
+
+
 
 
 
