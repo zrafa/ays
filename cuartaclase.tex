@@ -78,10 +78,10 @@ Las órdenes compuestas más utilizadas son las siguientes :
 \item \textbf{Las que utilizan palabras reservadas : } if, for, select, case, while until, function.
 \item \textbf{Una (lista) }: lista  se  ejecuta  en  un subshell. Después de que la orden se completa, las asignaciones a variables y órdenes internas que afectaran al
               entorno del shell no permanecen en efecto.
-\texttt{ Ejemplo :  (ls /etc ; A=2; ls /root;) }
+\texttt{ Ejemplo:  (ls /etc ; A=2; ls /root;) }
 \item \textbf{Una \{ lista; \} }: 
-              lista se ejecuta simplemente en el entorno del shell en curso.  lista debe terminarse con un salto de línea o un punto y  coma.
-\texttt{ Ejemplo :  \{ ls /etc ; A=2; ls /root; \} }
+              lista se ejecuta simplemente en el entorno del shell en curso.  lista debe terminar con un salto de línea o un punto y  coma.
+\texttt{ Ejemplo:  \{ ls /etc ; A=2; ls /lib; \} }
 \item
 \textbf{Una ((expresión)) } La expresión se evalúa de acuerdo a las reglas de EVALUACIÓN ARITMÉTICA.  
 \item
@@ -112,7 +112,7 @@ Ejemplo :
 
 \begin{frame}
 \frametitle{Expresiones Condicionales}
-Las expresiones condicionales son empleadas por la orden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las mas utilizadas son :
+Las expresiones condicionales son empleadas por la órden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las más utilizadas son :
 
 \begin{itemize}
 \item \textbf{-a nombre} Verdadero si nombre existe y es un archivo.
@@ -143,7 +143,7 @@ Ejemplos de expresiones condicionales para analizar :
  fi
 
  YO=$(whoami)
- if [[ "$(YO)" != 'root' && "$(YO)" != 'sysadmin' ]]; then
+ if [[ "$YO" != 'root' && "$YO" != 'sysadmin' ]]; then
         echo "Soy un tipo comun.. (Autor: de Narvaez)"
         exit 1;
  fi
@@ -166,8 +166,8 @@ if [ -f $FILENAME ]; then
   echo "Tipo: $(file $FILENAME | cut -d":" -f2 -)"
   echo "Inodo: $(ls -i $FILENAME | cut -d" " -f1 -)"
   echo "$(df -h $FILENAME | tail -1 | 
-awk '{ print "On",$1", \
-el cual esta montado como la ",$6,"particion."}')"
+  awk '{ print "En",$1", \
+  el cual esta montado como la ",$6,"particion."}')"
 fi
 \end{Verbatim}
 
@@ -182,12 +182,12 @@ fi
 \item Lo argumentos de  la  función  se
        convierten  en los parámetros posicionales durante su ejecución.
 \item 
-       Variables  locales  a la función se pueden declarar con la orden interna local.  
+       Variables locales a la función se pueden declarar con la orden interna \texttt{local}.
 Normalmente, las
        variables y sus valores se comparten entre la función y quien la llama, como variables globales.
 
 \item
-       Si se ejecuta la orden interna return en una función, éste finaliza y la ejecución se reanuda con
+       Si se ejecuta la orden interna \texttt{return} la función finaliza y la ejecución se reanuda con
        la  siguiente  orden tras la llamada a la función. 
 
 \end{itemize}
