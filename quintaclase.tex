@@ -72,10 +72,13 @@
 
 
 \begin{frame}{}
-\frametitle{La Clase de los 10 Ejemplos}
+\frametitle{La Clase de los 5 Ejemplos}
 \begin{enumerate}
-\item Usando parametros posicionales
-\item Usando parametros posicionales
+\item Utilizacion de parametros posicionales
+\item Utilizacion de case-esac para seleccion
+\item read para interactuar con el usuario
+\item Programas elaborados. Programas con opciones
+\item Comunicandonos con el mundo
 \end{enumerate}
 \end{frame}{}
 
@@ -268,81 +271,6 @@ cat $TEMP | msmtp -a default  autoyscripting@gmail.com
 rm $TEMP
 
 \end{Verbatim}
-
-
-
- fi
-
- SEMANA=$(date +"%V")
- if [[ $SEMANA -gt "10" ]]; then
-	echo "Mas de 10 semanas, parcial seguro."
- fi
-
- YO=$(whoami)
- if [[ "$YO" != 'root' && "$YO" != 'sysadmin' ]]; then
-        echo "Soy un tipo comun.. (Autor: de Narvaez)"
-        exit 1;
- fi
-
-\end{Verbatim}
-
-
-\begin{Verbatim}
-Crear el siguiente script con nombre /tmp/f.sh
-Ejecutar : /tmp/f.sh
-
-#!/bin/bash
-# Este script informa detalles de un archivo.
-
-FILENAME="$1"
-echo "Características de $FILENAME:"
-
-if [ -f $FILENAME ]; then
-  echo "Tamanio: $(ls -lh $FILENAME | awk '{ print $5 }')"
-  echo "Tipo: $(file $FILENAME | cut -d":" -f2 -)"
-  echo "Inodo: $(ls -i $FILENAME | cut -d" " -f1 -)"
-  echo "$(df -h $FILENAME | tail -1 | 
-  awk '{ print "En",$1", \
-  el cual esta montado como la ",$6,"particion."}')"
-fi
-\end{Verbatim}
-
-
-
-\begin{frame}
-\frametitle{Funciones - Argumentos}
-       Una  función define una serie de órdenes para ser ejecutadas bajo un nombre. Características
-
-\begin{itemize}
-\item No  se crea ningún nuevo proceso para ejecutar la función.
-\item Lo argumentos de  la  función  se
-       convierten  en los parámetros posicionales durante su ejecución.
-\item 
-       Variables locales a la función se pueden declarar con la orden interna \texttt{local}.
-Normalmente, las
-       variables y sus valores se comparten entre la función y quien la llama, como variables globales.
-
-\item
-       Si se ejecuta la orden interna \texttt{return} la función finaliza y la ejecución se reanuda con
-       la  siguiente  orden tras la llamada a la función. 
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Funciones - Argumentos - Continuación}
-\begin{itemize}
-\item La definición de una función es con \texttt{function nombre() \{ comandos; \} }
-\item Los argumentos se convierten en parámetros posicionales con los nombres \$1, \$2, ..., \$n
-\item Los argumentos es información que puede ser enviada a la función en forma de una lista de cadenas separadas por espacio.\\ 
-\item Los parámetros posicionales son variables, por lo que pueden ser utilizadas como las definidas explicitamente.
-\texttt{Ejemplo : function sumar()\{ echo \$((\$1+\$2+\$3)); \} }\\ 
-\texttt{Ejemplo de llamada : sumar 2 3 4 }
-\end{itemize}
-\end{frame}
-
-
-
 
 
 
