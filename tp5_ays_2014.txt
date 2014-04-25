@@ -3,26 +3,25 @@ TP05 - Automatización y scripting
 FAI - TUASSL - 2014
 ----------------------------------
 
-case 
-opciones 
-argumetos
-read
-memoria 
-
 1 - case:
-    Reescriba el ejercicio 7 del práctico 4 (TP04) utilizando ls y case en lugar de 
-    test para distinguir entre los tipos de archivos. 
+    Reescriba el ejercicio 7 del práctico 4 (TP04) utilizando ls y case en 
+    lugar de test para distinguir entre los tipos de archivos. 
 
 1 - Argumentos / Parámetros posicionales:
     Escriba un script tal que: 
-	a) Muestre un mensaje: "INVOCACIÓN:" seguido de la sentencia que ejecuto el script. 
+	a) Muestre un mensaje: "INVOCACIÓN:" seguido de la sentencia que 
+	ejecuto el script. 
 	   Ejemplo: 
 	   INVOCACIÓN: ./sintaxis.sh -a -m argumento1 argumento2 
         b) Itere sobre todas las opciones y argumentos mostrando 
-		"OPCIÓN" si el argumento comienza con "-", seguido de la opción en cuestión. 
-		"ARGUMENTO:" en caso contrario, seguido del nombre del argumento en cuestión.  
-	   Utilice case para distinguir entre uno y otro, considere que pueden estar las 
-	   opciones y argumentos en cualquier orden, y ser un número arbitrario de las mismas.  	
+		"OPCIÓN" si el argumento comienza con "-", seguido de la 
+		opción en cuestión. 
+		"ARGUMENTO:" en caso contrario, seguido del nombre del 
+		argumento en cuestión.  
+	   Utilice case para distinguir entre uno y otro, considere que pueden 
+	   estar las opciones y argumentos en cualquier orden, y ser un número 
+	   arbitrario de las mismas.  	
+
 	Ejemplo: 
 	$ ./sintaxis.sh -a sdf -f
 	INVOCACIÓN: ./sintaxis.sh -a sdf -f
@@ -40,23 +39,24 @@ memoria
     4) Todo 
     Opción elegida: 
 
-    El script deberá leer la opción elegida por el usuario y efectuar las siguiente
-    operación según corresponda:
+    El script deberá leer la opción elegida por el usuario y efectuar las 
+    siguiente operación según corresponda:
     1) Mostrar la memoria RAM total, libre y en uso del sistema
-    2) Mostrar el directorio de trabajo y su tamaño en disco (exprese la unidad), junto a 
-    los 5 archivos mas grandes contenidos en él, y su tamaño. 
+    2) Mostrar el directorio de trabajo y su tamaño en disco (exprese la 
+    unidad), junto a los 5 archivos mas grandes contenidos en él, y su tamaño. 
     3) Mostrar la utilización de los sistemas de archivos. 
     4) 1, 2 y 3 secuencialmente. 
+
     Ejemplo:
     $ ./almacenamiento.sh 
-
     1) Memoria 
     2) Archivos grandes 
     3) Sistema de archivos 
     4) Todo 
     Opción elegida: 2
 
-4404	/home/lechnerm/Versionado/ays
+Archivos grandes: 
+4404M	/home/lechnerm/Versionado/ays
 40K	segundaclase.log
 80K	cuartaclase.pdf
 80K	segundaclase.pdf
@@ -64,16 +64,64 @@ memoria
 1,5M	advanced_bash_scripting_guide
 
 
-4 - Reescriba el script anterior pero esta vez utilizando argumentos como opciones.
+4 - Reescriba el script anterior pero esta vez utilizando argumentos como 
+    opciones.
     Si el script recibe la opción -m entonces muestra 1) 
     Si el script recibe la opción -a entonces muestra 2)
     Si el script recibe la opción -f entonces muestra 3)
     Si el script recibe la opción -t entonces muestra 4)
-    Si el script no recibe argumentos, preguntará al usuario si quiere operar en forma interactiva:
-    ¿Quiere operar en modo interactivo? si/no 
-    Si obtenemos un si, entonces mostramos el menú del ejercicio 3 y actuamos según la opción elegida. 
-    Si obtenemos un no, mostramos un mensaje de ayuda con las opciones soportadas  por el script y salimos. 
+    Si el script no recibe argumentos, preguntará al usuario si quiere operar 
+    en forma interactiva:
+
+    "¿Desea operar en modo interactivo? si/no" 
+
+    Si obtenemos un si, entonces mostramos el menú del ejercicio 3 y actuamos 
+    según la opción elegida. 
+    Si obtenemos un no, mostramos un mensaje de ayuda con las opciones 
+    soportadas  por el script y salimos. 
 
     4.a ¿ Cómo podríamos eliminar la opción -t ? 
-    4.b Compare la implementación de este ejercicio con respecto a la implementación
-	del ejercicio 3. ¿ Qué ventajas o desventajas observa ?
+    4.b Compare la implementación de este ejercicio con respecto a la 
+	implementación del ejercicio 3. ¿ Qué ventajas o desventajas observa ?
+    4.c ¿ Utilizó funciones para reutilizar código ?
+
+5 - ¿ Cuál es la función del siguiente script ?
+#------------------------------------------------
+#!/bin/bash
+while [[ $# -gt 0 ]];do 
+   echo $# $1
+   shift 
+done 
+#------------------------------------------------
+    
+    5.a Mencione una forma alternativa de realizar lo mismo. 
+
+
+6 - ¿ Cuál es la función del siguiente script ?
+#------------------------------------------------
+#!/bin/bash
+j=2
+while [[ $j != $1 ]];do  
+ if [ `expr $1 % $j` -eq 0 ]; then
+	break 
+ fi
+ let j++
+done
+
+if [ $j == $1 ]
+then
+echo $1, es  ________.
+else
+echo $1, NO es ________.
+fi
+exit 0
+#------------------------------------------------
+
+	6.a Modifique el script para que el mensaje sea representativo. 
+	6.b Ḷea e interprete línea a línea cómo funciona el script. 
+	6.c ¿ Cuántas formas de evaluar expresiones aritméticas observa ? ¿Qué
+	diferencia hay entre el uso de la variable j en expr y en let ?
+	6.d ¿ Cuáles son las condiciones por las cuales el ciclo while puede
+	finalizar ?
+	
+
