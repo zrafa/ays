@@ -30,6 +30,8 @@ Formato de salida de exito, error y advertencia por chequeo.
 
 
 
+
+
 Verificaciones:
 ---------------
 Verificación del servicio de ntp:
@@ -64,7 +66,9 @@ Disco :
   - Mostrar los 5 procesos que mas E/S están realizando a disco.
 
 
-
+BONUS: escriba la página man de su programa. ¿En qué sección del manual la 
+agregaría? Instale su prorama tal que este disponible para cualquier usuario
+y tal que su página man aparezca al ejecutar man lin_sys.sh  
 
 
 
