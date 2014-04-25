@@ -166,6 +166,10 @@ Ejemplo 2. Utilizacion de case-esac para seleccion
 Enviando SIGTERM al proceso 13425
 
 
+
+
+
+
 \end{Verbatim}
 
 \begin{Verbatim}
@@ -180,7 +184,8 @@ N=0
 printf "Ingrese cantidad de lineas : "
 read NRO_LINEAS
 
-cat /etc/passwd | while read linea && [[ "$N" -lt NRO_LINEAS ]] ; do
+cat /etc/passwd | 
+while read linea && [[ "$N" -lt NRO_LINEAS ]] ; do
         echo "Linea $N : " $linea
 
         ((N+=1))
@@ -189,33 +194,83 @@ done
 \end{Verbatim}
 
 
+\begin{Verbatim}
+#!/bin/bash
+
+# Ejemplo 4. Programas elaborados. Programas con opciones
+# Como controlar diferentes opciones.
+# Uso de while, case, shift y break.
+
+while :
+do
+    case "$1" in
+      -h | --help)
+          echo "Uso: ej4.sh [-h] [--info paq] [--buscar paq]"
+          exit 0
+          ;;
+      --info)
+          apt-cache show $2
+          shift 2
+          ;;
 
 
-\begin{frame}
-\frametitle{Expresiones Condicionales}
-Las expresiones condicionales son empleadas por la órden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las más utilizadas son :
 
-\begin{itemize}
-\item \textbf{-a nombre} Verdadero si nombre existe y es un archivo.
-\item \textbf{-d nombre} Verdadero si nombre existe y es un directorio.
-\item \textbf{-f nombre} Verdadero si nombre existe y es un archivo común.
-\item \textbf{cad1 == cad2 } Verdadero si las cadenas son iguales.
-\item \textbf{cad1 != cad2 } Verdadero si las cadenas son distintas.
-\item \textbf{arg1 -eq arg2} Aritmético. Verdadero si arg1 es igual a arg2.
-\item \textbf{arg1 -lt arg2} Aritmético. Verdadero si arg1 es menor a arg2.
-\item \textbf{arg1 -gt arg2} Aritmético. Verdadero si arg1 es mayor a arg2.
 
-\end{itemize}
-\end{frame}
+      --buscar)
+          apt-cache search $2 | grep $2
+          shift 2
+          ;;
+      -*)
+          echo "Error: No reconozco el argumento: $1"
+          exit 1
+          ;;
+      *)  # No hay mas argumentos
+          break
+          ;;
+    esac
+done
+
+
+
+\end{Verbatim}
 
 \begin{Verbatim}
+#!/bin/bash
 
-Ejemplos de expresiones condicionales para analizar :
+# Ejemplo 5. Comunicandonos con el mundo.
+# Enviando correos al administrador
 
- N=`wc -l /etc/passwd`
- echo $N
- if [[ "$N" -gt "20" ]] ; then 
-	echo "Demasiados usuarios"
+# Este programa realiza un backup e informa por email
+
+TEMP=/tmp/tmp.$$
+
+
+echo "To: autoyscripting@gmail.com
+From: autoyscripting@gmail.com
+Subject: Informacion del BACKUP
+
+" >$TEMP
+
+tar czf /tmp/backup-etc.tar.gz /etc  >>$TEMP  2>&1
+
+
+
+
+
+
+if [[ "$?" == "0" ]]; then
+        echo "El backup fue exitoso" >>$TEMP
+else
+        echo "El backup tuvo problemas. Revisar." >>$TEMP
+fi
+
+cat $TEMP | msmtp -a default  autoyscripting@gmail.com
+rm $TEMP
+
+\end{Verbatim}
+
+
+
  fi
 
  SEMANA=$(date +"%V")
