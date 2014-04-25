@@ -3,8 +3,35 @@ TP04 - Automatización y scripting
 FAI - TUASSL - 2014
 ----------------------------------
 
-1 - Escriba un script que trabaje sobre el directorio actual tal que, si 
-    alguno de los archivos conenidos en él es un archivo de tipo 
+1 - Escriba un script que verifique si el directorio de trabajo actual 
+    ocupa un espacio en disco inferior al valor dado en la variable 
+    TAMANIO _y_ tiene una cantidad de archivos inferior al valor definido en 
+    la variable MAXARCH. De no ser así muestra un error apropiado. 
+
+2 - Escriba un script que verifique si el directorio de trabajo actual 
+    ocupa un espacio en disco inferior al valor dado en la variable 
+    TAMANIO _o_ tiene una cantidad de archivos inferior al valor definido en 
+    la variable MAXARCH. De no ser así muestra un error apropiado. 
+
+3 - Escriba un script tal que dado un valor de referencia guardado en la 
+    variable LIMITE determine si la memoria RAM utilizada en el sistema esta 
+    por arriba de LIMITE y en ese caso reporte un error.
+
+4 - Escriba un script tal que si el número de procesos en ejecución esta
+    por debajo del valor guardado en MUCHOS y por arriba del valor guardado
+    en POCOS retorne 0, si esta por debajo de POCOS retorne 1 y si
+    esta por arriba de muchos retorne 2. Observe que no se debe imprimir el 
+    valor de salida, sino que se deber _retornar el valor_ tal que lo podamos
+    observar ejecutando luego echo $?    
+
+5 - Convierta el script anterior en una función y utilícela para imprimir 
+    la siguiente salida según corresponda:
+	Si retorno 0 imprimir "OPERACION NORMAL" 
+	Si retorno 1 imprimir "POCOS PROCESOS"
+	Si retorno 2 imprimir "MUCHOS PROCESOS"
+
+6 - Escriba un script que trabaje sobre el directorio actual tal que, si 
+    alguno de los archivos contenidos en él es un archivo de tipo 
     directorio, indique el la cantidad de archivos que contiene el 
     subdirectorio en cuestión. Ejemplo 
     de salida: 
@@ -17,4 +44,32 @@ FAI - TUASSL - 2014
 
      Debe utilizar test para verificar si el archivo es un directorio. 
 
+7 - Escriba un script que trabaje sobre el directorio actual tal que 
+    describa uno a uno el tipo de archivos que se encuentran. Utilice 
+    test para identificar el tipo de archivo. Ejemplo 
+    Directorio de trabajo: /tmp
+    Directorio: dir1temporal 
+    Regular: practico.txt
+    Link Simbolico: videos2 
+    Dispositivo: sda1
+    Directorio: videos 
+    
+    ¿Existe algún orden especial entre los test realizados? ¿Qué sucede con 
+    los links simbólicos a directorios?
+
+8 - Escriba un script que verifique que el número de lineas en passwd y shadow
+    coinciden, caso contrario reporte un error apropiado. ¿Qué indicaría
+    una discrepancia entre estos archivos?
+
+9 - Escriba un script que indique si el año actual es bisiesto. ¿ Como podría
+    modificarlo para que el año a verificar sea pasado como un argumento 
+    del script, por ejemplo para ejecutar: ./bisiesto 2014 ? 
+
+10 - Asumiendo que Ud. guarda todos sus scripts en un directorio llamado bin en su 
+     directorio de trabajo (por ejemplo /home/lechnerm/bin) ¿ Que modificación tiene 
+     que hacer a sus variables de entorno para evitar tener que ejecutar los 
+     script anteponiendo "./" y sólo llamarlos por su nombre ?    
+
+
+ 
 
