@@ -9,7 +9,11 @@ argumetos
 read
 memoria 
 
-1 - Argumentos / Parámetros posicionales
+1 - case:
+    Reescriba el ejercicio 7 del práctico 4 (TP04) utilizando ls y case en lugar de 
+    test para distinguir entre los tipos de archivos. 
+
+1 - Argumentos / Parámetros posicionales:
     Escriba un script tal que: 
 	a) Muestre un mensaje: "INVOCACIÓN:" seguido de la sentencia que ejecuto el script. 
 	   Ejemplo: 
@@ -27,8 +31,49 @@ memoria
 	OPCIÓN: -f
 	$
 
-2 - Reescriba el ejercicio 7 del práctico 4 (TP04) utilizando ls y case en lugar de 
-    test para distinguir entre los tipos de archivos. 
+
+3 - Escriba un script que muestre el siguiente menú:
+
+    1) Memoria
+    2) Archivos grandes 
+    3) Sistema de archivos 
+    4) Todo 
+    Opción elegida: 
+
+    El script deberá leer la opción elegida por el usuario y efectuar las siguiente
+    operación según corresponda:
+    1) Mostrar la memoria RAM total, libre y en uso del sistema
+    2) Mostrar el directorio de trabajo y su tamaño en disco (exprese la unidad), junto a 
+    los 5 archivos mas grandes contenidos en él, y su tamaño. 
+    3) Mostrar la utilización de los sistemas de archivos. 
+    4) 1, 2 y 3 secuencialmente. 
+    Ejemplo:
+    $ ./almacenamiento.sh 
+
+    1) Memoria 
+    2) Archivos grandes 
+    3) Sistema de archivos 
+    4) Todo 
+    Opción elegida: 2
+
+4404	/home/lechnerm/Versionado/ays
+40K	segundaclase.log
+80K	cuartaclase.pdf
+80K	segundaclase.pdf
+428K	bash_guide_for_beginners
+1,5M	advanced_bash_scripting_guide
 
 
+4 - Reescriba el script anterior pero esta vez utilizando argumentos como opciones.
+    Si el script recibe la opción -m entonces muestra 1) 
+    Si el script recibe la opción -a entonces muestra 2)
+    Si el script recibe la opción -f entonces muestra 3)
+    Si el script recibe la opción -t entonces muestra 4)
+    Si el script no recibe argumentos, preguntará al usuario si quiere operar en forma interactiva:
+    ¿Quiere operar en modo interactivo? si/no 
+    Si obtenemos un si, entonces mostramos el menú del ejercicio 3 y actuamos según la opción elegida. 
+    Si obtenemos un no, mostramos un mensaje de ayuda con las opciones soportadas  por el script y salimos. 
 
+    4.a ¿ Cómo podríamos eliminar la opción -t ? 
+    4.b Compare la implementación de este ejercicio con respecto a la implementación
+	del ejercicio 3. ¿ Qué ventajas o desventajas observa ?
