@@ -1,0 +1,34 @@
+----------------------------------
+TP05 - Automatización y scripting 
+FAI - TUASSL - 2014
+----------------------------------
+
+case 
+opciones 
+argumetos
+read
+memoria 
+
+1 - Argumentos / Parámetros posicionales
+    Escriba un script tal que: 
+	a) Muestre un mensaje: "INVOCACIÓN:" seguido de la sentencia que ejecuto el script. 
+	   Ejemplo: 
+	   INVOCACIÓN: ./sintaxis.sh -a -m argumento1 argumento2 
+        b) Itere sobre todas las opciones y argumentos mostrando 
+		"OPCIÓN" si el argumento comienza con "-", seguido de la opción en cuestión. 
+		"ARGUMENTO:" en caso contrario, seguido del nombre del argumento en cuestión.  
+	   Utilice case para distinguir entre uno y otro, considere que pueden estar las 
+	   opciones y argumentos en cualquier orden, y ser un número arbitrario de las mismas.  	
+	Ejemplo: 
+	$ ./sintaxis.sh -a sdf -f
+	INVOCACIÓN: ./sintaxis.sh -a sdf -f
+	OPCIÓN: -a
+	ARGUMENTO: sdf
+	OPCIÓN: -f
+	$
+
+2 - Reescriba el ejercicio 7 del práctico 4 (TP04) utilizando ls y case en lugar de 
+    test para distinguir entre los tipos de archivos. 
+
+
+
