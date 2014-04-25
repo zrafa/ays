@@ -1,0 +1,248 @@
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+\documentclass{beamer}
+% Replace the \documentclass declaration above
+% with the following two lines to typeset your 
+% lecture notes as a handout:
+%\documentclass{article}
+%\usepackage{beamerarticle}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{fancyvrb}
+% \usepackage{verbatim}
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%  \usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+
+\title{Automatización y Scripting}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{}
+\frametitle{La Clase de los 10 Ejemplos}
+\begin{enumerate}
+\item Usando parametros posicionales
+\item Usando parametros posicionales
+\end{enumerate}
+\end{frame}{}
+
+
+
+\begin{Verbatim}
+#!/bin/bash
+
+# Ejemplo 1. Utilizacion de parametros posicionales
+# "$*"  "$1c$2c$3c…c${N}"
+# "$@"  "$1" "$2" "$3" … "${N}"
+# $#    Indica la cantidad de argumentos
+
+if [[ "$#" -lt 1 ]] ; then
+        echo "Error. Necesita al menos un argumento"
+        exit 1
+fi
+
+for i in "$*" ; do
+        echo $i
+done
+
+for i in "$@" ; do
+        echo $i
+done
+\end{Verbatim}
+
+
+\begin{Verbatim}
+
+
+Ejemplo 1. Utilizacion de parametros posicionales
+
+- Ejecutar una vez sin argumentos
+
+- Ejecutar una segunda vez con 5 argumentos.
+  Ejemplo : 
+
+# ./ej1.sh lunes martes miercoles 4 5
+lunes martes miercoles 4 5
+lunes
+martes
+miercoles
+4
+5
+
+\end{Verbatim}
+
+\begin{frame}
+\frametitle{Expresiones Condicionales}
+Las expresiones condicionales son empleadas por la órden compuesta [[ y por las órdenes internas test. Muy utilizadas con \texttt{if}. Las más utilizadas son :
+
+\begin{itemize}
+\item \textbf{-a nombre} Verdadero si nombre existe y es un archivo.
+\item \textbf{-d nombre} Verdadero si nombre existe y es un directorio.
+\item \textbf{-f nombre} Verdadero si nombre existe y es un archivo común.
+\item \textbf{cad1 == cad2 } Verdadero si las cadenas son iguales.
+\item \textbf{cad1 != cad2 } Verdadero si las cadenas son distintas.
+\item \textbf{arg1 -eq arg2} Aritmético. Verdadero si arg1 es igual a arg2.
+\item \textbf{arg1 -lt arg2} Aritmético. Verdadero si arg1 es menor a arg2.
+\item \textbf{arg1 -gt arg2} Aritmético. Verdadero si arg1 es mayor a arg2.
+
+\end{itemize}
+\end{frame}
+
+\begin{Verbatim}
+
+Ejemplos de expresiones condicionales para analizar :
+
+ N=`wc -l /etc/passwd`
+ echo $N
+ if [[ "$N" -gt "20" ]] ; then 
+	echo "Demasiados usuarios"
+ fi
+
+ SEMANA=$(date +"%V")
+ if [[ $SEMANA -gt "10" ]]; then
+	echo "Mas de 10 semanas, parcial seguro."
+ fi
+
+ YO=$(whoami)
+ if [[ "$YO" != 'root' && "$YO" != 'sysadmin' ]]; then
+        echo "Soy un tipo comun.. (Autor: de Narvaez)"
+        exit 1;
+ fi
+
+\end{Verbatim}
+
+
+\begin{Verbatim}
+Crear el siguiente script con nombre /tmp/f.sh
+Ejecutar : /tmp/f.sh
+
+#!/bin/bash
+# Este script informa detalles de un archivo.
+
+FILENAME="$1"
+echo "Características de $FILENAME:"
+
+if [ -f $FILENAME ]; then
+  echo "Tamanio: $(ls -lh $FILENAME | awk '{ print $5 }')"
+  echo "Tipo: $(file $FILENAME | cut -d":" -f2 -)"
+  echo "Inodo: $(ls -i $FILENAME | cut -d" " -f1 -)"
+  echo "$(df -h $FILENAME | tail -1 | 
+  awk '{ print "En",$1", \
+  el cual esta montado como la ",$6,"particion."}')"
+fi
+\end{Verbatim}
+
+
+
+\begin{frame}
+\frametitle{Funciones - Argumentos}
+       Una  función define una serie de órdenes para ser ejecutadas bajo un nombre. Características
+
+\begin{itemize}
+\item No  se crea ningún nuevo proceso para ejecutar la función.
+\item Lo argumentos de  la  función  se
+       convierten  en los parámetros posicionales durante su ejecución.
+\item 
+       Variables locales a la función se pueden declarar con la orden interna \texttt{local}.
+Normalmente, las
+       variables y sus valores se comparten entre la función y quien la llama, como variables globales.
+
+\item
+       Si se ejecuta la orden interna \texttt{return} la función finaliza y la ejecución se reanuda con
+       la  siguiente  orden tras la llamada a la función. 
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Funciones - Argumentos - Continuación}
+\begin{itemize}
+\item La definición de una función es con \texttt{function nombre() \{ comandos; \} }
+\item Los argumentos se convierten en parámetros posicionales con los nombres \$1, \$2, ..., \$n
+\item Los argumentos es información que puede ser enviada a la función en forma de una lista de cadenas separadas por espacio.\\ 
+\item Los parámetros posicionales son variables, por lo que pueden ser utilizadas como las definidas explicitamente.
+\texttt{Ejemplo : function sumar()\{ echo \$((\$1+\$2+\$3)); \} }\\ 
+\texttt{Ejemplo de llamada : sumar 2 3 4 }
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+Bibliografía : 
+\begin{itemize}
+\item man bash
+\item Libro Bash Guide for Beginners, de Machtelt Garrels 
+\item Libro Advanced Bash-Scripting Guide, de Mendel Cooper
+\end{itemize}
+
+Ambos libros están disponibles en varios formatos diferentes en :
+
+Bibliografía suplementaria sugerida : 
+\begin{itemize}
+\item Libro El Entorno De Programación Unix, de Kernighan, y Rob Pike
+\end{itemize}
+
+\end{frame}
+
+
+
+\end{document}
+
+
