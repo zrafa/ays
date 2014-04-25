@@ -122,7 +122,74 @@ miercoles
 4
 5
 
+
 \end{Verbatim}
+
+
+
+\begin{Verbatim}
+#!/bin/bash
+
+# Ejemplo 2. Utilizacion de case-esac para seleccion
+#  case palabra in [ ( patrón [ | patrón ] ... ) lista ;; ] ... esac
+
+if [[ "$#" -lt 2 ]] ; then
+        echo "Uso: $0 Signalnumber PID"; exit 1
+fi
+
+case "$1" in
+        9) echo  "Enviando SIGKILL al proceso $2"
+           kill -SIGKILL $2
+           ;;
+        15)  echo  "Enviando SIGTERM al proceso $2"
+            kill -SIGTERM $2
+            ;;
+        *) echo "$1 no es controlada en este programa"
+           ;;
+esac
+\end{Verbatim}
+
+
+
+\begin{Verbatim}
+
+Ejemplo 2. Utilizacion de case-esac para seleccion
+
+- Ejecutar una vez sin argumentos
+
+- Ejecutar una segunda vez con 2 argumentos.
+  El primer argumento es el numero de senial a enviar.
+  El segundo argumento es el numero de proceso.
+  Ejemplo : 
+
+# ./ej2.sh 15 13425
+Enviando SIGTERM al proceso 13425
+
+
+\end{Verbatim}
+
+\begin{Verbatim}
+#!/bin/bash
+
+# Ejemplo 3. read para interactuar con el usuario
+# read [nombre..] lee  una  línea  desde  la  entrada
+# estándar, y la primera palabra se asigna al  primer  nombre,
+
+N=0
+
+printf "Ingrese cantidad de lineas : "
+read NRO_LINEAS
+
+cat /etc/passwd | while read linea && [[ "$N" -lt NRO_LINEAS ]] ; do
+        echo "Linea $N : " $linea
+
+        ((N+=1))
+done
+
+\end{Verbatim}
+
+
+
 
 \begin{frame}
 \frametitle{Expresiones Condicionales}
