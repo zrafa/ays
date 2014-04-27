@@ -1,7 +1,13 @@
-Si el usuario no es root deberá mostrar las salidas de a, b y c
-Caso contrario deberá ejecutar todos los chequeos. 
-Uso de opciones -h --help 
-		-l logfile 
+
+
+Uso de opciones 
+---------------
+  -h --help 
+	Muestra una breve descripción de la funcionalidad del script y las 
+        opciones soportadas. 
+  -l logfile 
+	Permite especificar un archivo de log en lugar de ser definido por 
+        el script (debe verificar la ruta). 
 
 
 Formato de salida:
@@ -17,10 +23,17 @@ Encabezado:
 Por chequeo: 
 Por cada chequeo deberán utilizarce el siguiente formato de 
 salida de exito, error, advertencia o información:
+
+Chequeo: <nombre del chequeo>
 *** EXITO:       mensaje
 *** ERROR:       mensaje
 *** ADVERTENCIA: mensaje
 *** INFO: 	 mensaje 
+
+El mensaje "INFO" debe ser único y mostrarse al final del chequeo. Los restantes
+tipos de mensaje pueden estar en cualquier orden y numero. El mensaje INFO puede
+ser utilizado para mostrar información adicional a los mensajes de ERROR, EXITO
+y ADVERTENCIA que considere apropiados. 
 	
 Resúmen de ejecución:
 ########################################
@@ -30,8 +43,6 @@ Total chequeos: <numero de chequeos total>
 Total exito: <numero de mensajes EXITO>
 Total errores: <numero de mensajes ERROR>
 Total advertencias: <numero de mensajes ADVERTENCIA>
-
-
 
 Disponibilidad de salida:
 -------------------------
@@ -46,20 +57,28 @@ Si el usuario es root entonces el archivo de log deberá guardarse en
 
 Usuarios: 
 ---------
+Si el usuario no es root deberá mostrar las salidas de a, b y c
+Caso contrario deberá ejecutar todos los chequeos. 
 
 
 Verificaciones:
 ---------------
 Verificación del servicio de ntp:
-	Si esta no esta ejecutandose entonces reportar como advertencia
-	ADVERTENCIAS. 
-	Si esta ejecutando y sincronizando entonces  EXITO, SINO ERROR. 
+	Si el servicio de ntp no esta siendo ejecutando entonces reportar 
+	como ADVERTENCIA.  
+	Si está siendo ejecutado y está sincronizando entonces  EXITO, caso 
+	contrario ERROR. 
 
 Verificación de sistemas montados:
 Verificar si todos los sistemas de archivos en /etc/fstab se encuentran montados. 
-	Si todos están montados, entonces no se muestra salida.  
+	Si todos están montados, entonces EXITO. 
 	Si alguno no se encuentra montado entonces ERROR.
 	
+
+Verificación de usuarios:
+	Verificar que todos los usuarios presentes en passwd se ecuentren en 
+	shadow y que el número de líneas de ambos coincidan. EXITO si se cumplen
+	ambos condiciones, ERROR en caso contrario.  
 
 Memoria :
  - Verificar cuanta memoria RAM tiene el sistema, cuanta en uso y cuanta libre.
@@ -71,7 +90,7 @@ CPU :
  - Mostrar los 5 procesos que mas CPU están utilizando.
 
 RED :
- - Mostrar la configuración de la placa de red principal. Velocidad (100Mbit/s,    1Gbit/s, Full duplex, half duplex).
+ - Mostrar la configuración de las placas de red del sistema. Velocidad (100Mbit/s,    1Gbit/s, Full duplex, half duplex).
  - Verificar el uso del ancho de banda de la red. Cuánto está en uso y cuanto
    libre.
  - Mostrar los 5 procesos que más ancho de banda de la red están utilizando.
@@ -82,7 +101,7 @@ Disco :
   - Mostrar los 5 procesos que mas E/S están realizando a disco.
 
 
-BONUS: escriba la página man de su programa. ¿En qué sección del manual la 
+OPCIONAL: escriba la página man de su programa. ¿En qué sección del manual la 
 agregaría? Instale su programa tal que este disponible para cualquier usuario
 y tal que su página man aparezca al ejecutar man lin_sys.sh  
 
