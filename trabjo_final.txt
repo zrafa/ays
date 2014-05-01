@@ -1,8 +1,8 @@
 Trabajo final _individual_
 --------------------------
 
-Fecha de entrega: hasta el 30 de mayo. 
-Defensa: 6 de junio. 
+Fecha de límite de entrega: 30 de mayo inclusive.
+Defensa: 6 de junio.
 
 
 Desarrollar un programa script de Bash que realiza una serie de verificaciones
@@ -88,7 +88,7 @@ Fecha y Hora:
 Por chequeo (cuerpo del reporte) : 
 
 Cada chequeo debe presentar el siguiente formato de 
-salida (de éxito, error, advertencia o información:
+salida (de éxito, error, advertencia o información) :
 
 Chequeo: <nombre del chequeo>
 
@@ -97,10 +97,11 @@ Chequeo: <nombre del chequeo>
 *** ADVERTENCIA: mensaje
 *** INFO: 	 mensaje 
 
-El mensaje "INFO" debe ser único y estar presenta al final del chequeo. Los
-demás mensajes pueden estar en cualquier órden. El mensaje INFO puede
-ser utilizado para mostrar información adicional a los mensajes de ERROR, EXITO
-y ADVERTENCIA que considere apropiados. 
+El mensaje "INFO" debe estar presente siempre, al final de cada chequeo.
+Los demás mensajes pueden estar o no, dependiendo del chequeo (no todos
+los chequeos necesariamente pueden contener errores de verificación, o
+advertencias). El mensaje INFO puede ser utilizado para mostrar información 
+adicional a los mensajes de ERROR, EXITO y ADVERTENCIA que considere apropiados.
 
 	
 Resumen de ejecución (al final del reporte) :
@@ -118,7 +119,7 @@ Total advertencias: <numero de mensajes ADVERTENCIA>
 Usuarios
 --------
 
-Si el usuario no es root deberá mostrar una advertencia de salida reducida y 
+Si el usuario no es root deberá mostrar una advertencia de salida reducida y
 las salidas de aquellos chequeos para los cuales no hace falta ser root (ej. 
 la verificación del servicio de NTP). Caso contrario deberá ejecutar todos los
 chequeos posibles.
@@ -184,7 +185,6 @@ agregaría? Instale su programa tal que este disponible para cualquier usuario
 y tal que su página man aparezca al ejecutar man lin_sys.sh  
 
 
-
 Recomendaciones
 ---------------
 
@@ -200,5 +200,15 @@ realizar la entrega de este trabajo de manera completa pero con muchos errores
 o problemas (bugs).
 
 
+Qué entregar
+------------
 
+Enviar el trabajo en un archivo tar.gz, por correo a
+rafa@fi.uncoma.edu.ar y mtl@fi.uncoma.edu.ar
 
+El paquete tar.gz debe contener el script desarrollado y, 
+al menos, la documentación necesaria (preferentemente un archivo
+de texto sin formato) con todas las consideraciones que crean necesarias.
+
+Por ejemplo, deben detallar cómo debemos ejecutar el script
+entregado.
