@@ -127,53 +127,53 @@ chequeos posibles.
 Verificaciones
 --------------
 
-1) Verificación del servicio de ntp:
- - Si el servicio de ntp no esta siendo ejecutando entonces reportar 
-   como ADVERTENCIA.  
- - Si está siendo ejecutado y está sincronizando entonces  EXITO, caso 
-   contrario ERROR. 
-
-2) Verificación de sistemas montados:
- - Verificar si todos los sistemas de archivos listados en /etc/fstab se encuentran
-   montados. 
- - Si todos están montados, entonces EXITO. 
- - Si alguno no se encuentra montado entonces ERROR.
-	
-
-3) Verificación de usuarios:
- - Verificar que todos los usuarios presentes en passwd se encuentren en 
-   shadow y que el número de líneas de ambos coincidan. EXITO si se cumplen
-   ambos condiciones, ERROR en caso contrario.  
-
-4) Memoria:
+1) Memoria:
  - Verificar cuanta memoria RAM tiene el sistema, cuanta en uso y cuanta libre.
    Reportar una advertencia si la memoria en uso supera el 95% del total 
    disponible.
- - Mostrar los 5 procesos que mas memoria RAM utilizan (esto es memoria 
+ - Mostrar los 5 procesos que mas memoria RAM utilizan (de memoria 
    residente, no virtual). 
 
-5) CPU:
+2) CPU:
  - Verificar el uso de CPU. Cuánto se está utilizando para procesos, cuánto
    para el sistema, cuánta espera hay de E/S, y cuánto % de CPU hay disponible.
- - Mostrar los 5 procesos que mas CPU están utilizando.
+ - Mostrar los 5 procesos que más CPU están utilizando.
 
-6) Red:
+3) Red:
  - Mostrar la configuración de las placas de red del sistema. Velocidad 
    (100Mbit/s,1Gbit/s, Full duplex, half duplex).
  - Verificar el uso del ancho de banda de la red. Cuánto está en uso y cuanto
    libre.
  - Mostrar los 5 procesos que más ancho de banda de la red están utilizando.
 
-7) DNS: 
-   Si existen servidores de nombre (DNS) definidos, entonces verificar que
-   funcionan correctamente. Si no existe ninguno definido emitir una
-   ADVERTENCIA. 
-   Si están definidos y funcionan correctamente EXITO, caso contrario ERROR. 
-
-8) Disco :
+4) Disco :
   - Mostrar la configuración del disco principal del sistema y del sistema
     de archivo raíz.
   - Mostrar los 5 procesos que mas E/S están realizando a disco.
+
+5) Usuarios:
+ - Verificar que todos los usuarios presentes en passwd se encuentren en 
+   shadow y que el número de líneas de ambos coincidan. EXITO si se cumplen
+   ambos condiciones, ERROR en caso contrario.  
+
+6) Sistemas de archivos: 
+ - Verificar si todos los sistemas de archivos listados en /etc/fstab se
+   encuentran montados. 
+ - Si todos están montados, entonces EXITO. 
+ - Si alguno no se encuentra montado entonces ERROR.
+
+7) DNS: 
+ -  Si existen servidores de nombre (DNS) definidos, entonces verificar que
+    funcionan correctamente. Si no existe ninguno definido emitir una
+    ADVERTENCIA. 
+    Si están definidos y funcionan correctamente EXITO, caso contrario ERROR. 
+
+8) Servicio de ntp:
+ - Verificar si el servicio de ntp esta siendo ejecutando, si no lo está
+   entonces reportar como ADVERTENCIA.  
+ - Si está siendo ejecutado y está sincronizando entonces EXITO, caso 
+   contrario ERROR.
+
 
 NOTA: si utiliza algún software especial que pueda no estar instalado con 
 frecuencia, verifique que el mismo está presente antes de utilizarlo, caso 
@@ -183,6 +183,21 @@ OPCIONAL: escriba la página man de su programa. ¿En qué sección del manual l
 agregaría? Instale su programa tal que este disponible para cualquier usuario
 y tal que su página man aparezca al ejecutar man lin_sys.sh  
 
+
+
+Recomendaciones
+---------------
+
+Un diseño recomendado es desarrollar cada chequeo en funciones diferentes.
+De esta manera, si sólo algunos chequeos deben ser realizados, sólo
+se necesita llamar a las funciones correspondientes.
+
+Realizar un programa básico que únicamente interprete los argumentos del usuario
+puede servir como esqueleto de programa.
+
+Es preferible un programa que haga unas pocas verificaciones bien que
+realizar la entrega de este trabajo de manera completa pero con muchos errores
+o problemas (bugs).
 
 
 
