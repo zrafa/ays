@@ -1,0 +1,45 @@
+----------------------------------
+TP06 - Automatización y scripting 
+Cron y at: ejecución programada de 
+comandos. 
+FAI - TUASSL - 2014
+----------------------------------
+
+1) Agregue una línea en el crontab (del usuario que prefiera) tal que ejecute 
+todos los días lunes, miércoles y viernes, cada una hora, un script con la 
+misma funcionalidad que TP03-EJ4 pero cuya salida sea guardada en el mail del
+usuario que lo ejecuta en lugar de todas las terminales. Observe que en este
+caso ya no será necesario el ciclo infinito, pues cron se encarga de la
+ejecución periódica.  
+
+2) Agregue una línea en el crontab de root tal que ejecute todos los días 
+cada 10 minutos, un script con la misma funcionalidad que TP03-EJ4 pero cuya 
+salida sea guardada en el archivo /var/log/usuarios_presentes. Dicho archivo 
+debe ser acumulativo, esto es, no debe ser sobrescrito con 
+cada ejecución. Observe que en este caso ya no será necesario el ciclo 
+infinito, pues cron se encarga de la ejecución periódica. ¿Por qué utilizamos
+el cron de root y no el de cualquier usuario como en el ejercicio anterior? 
+
+3) Ud es un administrador precavido y sabe que hoy a las 18hs alguien mas va 
+a implementar cambios en la configuración del sistema. Por ende decide que un
+rato antes de que suceda, quisiera realizar un backup del directorio de 
+configuración de sistema en el home de root, sin embargo, le ha surgido una 
+cita importante que le impide realizarlo alrededor de las 17hs. Utilice el 
+comando at para planificar la tarea. 
+
+
+5) Indique cómo sería la planificación por crontab para los siguientes casos:
+	5.a) Todos los viernes del mes de diciembre
+	5.b) Cada 3 días
+	5.c) El primer día de cada mes. 
+	5.d) De las 18h a las 22hs.
+	5.e) En los minutos 0 a 14 y 24 a 35, de las 0hs,7hs y23hs, los días 
+	     miércoles.
+	5.f) Una vez por año
+	 
+
+6) Indique expresiones válidas para indicar a at que comience:
+	6.a) dentro de 5 minutos
+	6.b) dentro de 3 días 
+	6.c) A las 18:23hs 
+	6.d) A las 4 de la tarde. 
