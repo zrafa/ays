@@ -1,0 +1,42 @@
+----------------------------------
+TP06 - Automatización y scripting 
+Filtros: sed 
+FAI - TUASSL - 2014
+----------------------------------
+
+Observación: 
+Cuando realice los ejercicios tenga en cuenta que los patrones/expresiones
+regulares utilizados deben ser lo más exactos posible para evitar salidas
+inesperadas. Por ejemplo, dadas las siguientes líneas de texto:
+ 
+Alguna vez fui root
+root es el único usuario superpoderoso
+En inglés root significa raíz
+
+El patrón: sed '/root/p' coincidirá con las tres líneas.
+	   sed '/^root/p' coincidirá con la segunda. 
+	   sed '/root$/p' coincidirá con la primer línea. 
+
+Ejercicios: 
+
+1) Utilizando sed obtenga lo siguiente (): 
+   a. Obtenga la línea que define el nivel de ejecución predeterminado del 
+      archivo de configuración de init, /etc/inittab (no utilice Ubuntu).
+   b. Obtenga los procesos en ejecución que corresponden al usuario root 
+   c. Obtenga la lista de usuarios que utilizan el shell /bin/bash como shell
+      predeterminado. 
+   d. Todas las líneas que no sean comentarios del archivo /etc/fstab 
+   e. Los usuarios que tengan definido su directorio de inicio dentro del 
+      directorio home. Tenga en cuenta la observación al inicio del práctico. 
+
+2) Obteniendo secciones con sed:
+   a. Obtenga la lista de usuarios comprendida entre el usuario root y el 
+      usuario mail de la base de datos de usuario. ¿Funciona su expresión si 
+      alguno de los usuarios listados entremedio contiene la palabra "mail"? 
+   b. Obtener la definición de los puertos 1 a 80 del archivo /etc/services
+      utilizando el número de puerto y no el nombre para la expresión regular.
+   c. Obtenga de la línea 10 en adelante de la base de datos de usuario. 
+   d. Muestre todos los usuarios exceptos aquellos en la líneas 5 a 8. 
+   e. Muestre todas las líneas de /etc/services que no coincidan con 
+      definiciones de puertos sobre protocolo udp. ¿Su expresión eliminará
+      cualquier línea que contenga udp?   
