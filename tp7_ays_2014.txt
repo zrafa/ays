@@ -50,5 +50,5 @@ Ejercicios:
    d. Elimine todas las líneas en blanco de la salida del inciso c 
    e. Cómo haría c. y d. invocando solo una vez sed. 
    f. Convierta a comentarios todas las líneas que no lo sean en /etc/services
-   g. Inserte un comentario al final de cada línea del archivo /etc/fstab con la
-      fecha actual
+   g. Inserte un comentario al final de cada línea del archivo /etc/fstab 
+      con la fecha actual.
