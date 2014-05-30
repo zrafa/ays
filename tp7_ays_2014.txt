@@ -36,12 +36,12 @@ Ejercicios:
    b. Obtener la definición de los puertos 1 a 80 del archivo /etc/services
       utilizando el número de puerto y no el nombre para la expresión regular.
    c. Obtenga de la línea 10 en adelante de la base de datos de usuario. 
-   d. Muestre todos los usuarios exceptos aquellos en la líneas 5 a 8. 
+   d. Muestre todos los usuarios excepto aquellos en la líneas 5 a 8. 
    e. Muestre todas las líneas de /etc/services que no coincidan con 
       definiciones de puertos sobre protocolo udp. ¿Su expresión eliminará
       cualquier línea que contenga udp?   
 
-3) Reemplazos utilizando sed. En ningun caso modifique los archivos originales,
+3) Reemplazos utilizando sed. En ningún caso modifique los archivos originales,
    sólo obtenga la salida.  
    a. Obtenga en la salida el archivo /etc/passwd tal que todos los directorios      de inicio que comiencen con "/home" sean modificados a "/export/home"
    b. Reemplace el separador de campos ":" de /etc/passwd por un espacio en 
@@ -49,3 +49,6 @@ Ejercicios:
    c. Elimine todos los comentarios de /etc/services
    d. Elimine todas las líneas en blanco de la salida del inciso c 
    e. Cómo haría c. y d. invocando solo una vez sed. 
+   f. Convierta a comentarios todas las líneas que no lo sean en /etc/services
+   g. Inserte un comentario al final de cada línea del archivo /etc/fstab con la
+      fecha actual
